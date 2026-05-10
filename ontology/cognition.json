@@ -1,0 +1,273 @@
+{
+  "category": "Cognition",
+  "subtitle": "Models & Reasoning",
+  "description": "Models, frameworks and protocols that give AI the ability to reason and act.",
+  "groups": [
+    {
+      "group": "Frontier Model",
+      "items": [
+        {
+          "name": "GPT-4o",
+          "type": "model",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 97,
+          "summary": "OpenAI's flagship multimodal model, de facto standard for API-based LLM integration.",
+          "org": "OpenAI",
+          "tags": ["llm", "multimodal", "api"],
+          "url": "https://platform.openai.com/docs/models/gpt-4o",
+          "relations": [
+            { "to": "Claude 3.7 Sonnet", "type": "alternative" },
+            { "to": "Gemini 2.5 Pro", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "o3",
+          "type": "model",
+          "layers": ["cognition"],
+          "maturity": "trial",
+          "importance": 90,
+          "summary": "OpenAI's reasoning-specialized model using extended thinking at inference time for complex problem solving.",
+          "org": "OpenAI",
+          "tags": ["llm", "reasoning", "thinking"],
+          "url": "https://platform.openai.com/docs/models/o3",
+          "relations": [
+            { "to": "Claude 3.7 Sonnet", "type": "alternative" },
+            { "to": "DeepSeek R1", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Claude 3.7 Sonnet",
+          "type": "model",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 95,
+          "summary": "Anthropic's leading model with extended thinking mode, strongest in agentic coding and long-context tasks.",
+          "org": "Anthropic",
+          "tags": ["llm", "reasoning", "coding", "long-context"],
+          "url": "https://anthropic.com/claude",
+          "relations": [
+            { "to": "GPT-4o", "type": "alternative" },
+            { "to": "o3", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Gemini 2.5 Pro",
+          "type": "model",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 92,
+          "summary": "Google's frontier model with 1M context window, leading in long-document and multimodal understanding.",
+          "org": "Google",
+          "tags": ["llm", "multimodal", "long-context"],
+          "url": "https://deepmind.google/models/gemini",
+          "relations": [
+            { "to": "GPT-4o", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Llama 3",
+          "type": "model",
+          "layers": ["cognition", "infra"],
+          "maturity": "adopt",
+          "importance": 88,
+          "summary": "Meta's open-weight flagship, the dominant base model for self-hosted and fine-tuned deployments.",
+          "org": "Meta",
+          "tags": ["llm", "open-weight", "self-hosted"],
+          "url": "https://ai.meta.com/llama",
+          "relations": [
+            { "to": "Mistral Large", "type": "alternative" },
+            { "to": "DeepSeek R1", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Mistral Large",
+          "type": "model",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 76,
+          "summary": "Mistral's top-tier model balancing strong performance with efficient inference, popular in European deployments.",
+          "org": "Mistral AI",
+          "tags": ["llm", "efficient", "open-weight"],
+          "url": "https://mistral.ai/models",
+          "relations": [
+            { "to": "Llama 3", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "DeepSeek R1",
+          "type": "model",
+          "layers": ["cognition"],
+          "maturity": "trial",
+          "importance": 85,
+          "summary": "Chinese open-weight reasoning model matching frontier performance at a fraction of training cost.",
+          "org": "DeepSeek",
+          "tags": ["llm", "reasoning", "open-weight", "efficient"],
+          "url": "https://deepseek.com",
+          "relations": [
+            { "to": "o3", "type": "alternative" },
+            { "to": "Llama 3", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Protocol",
+      "items": [
+        {
+          "name": "MCP",
+          "type": "protocol",
+          "layers": ["cognition"],
+          "maturity": "trial",
+          "importance": 92,
+          "summary": "Anthropic's open protocol standardizing how AI models connect to external tools and data sources.",
+          "org": "Anthropic",
+          "tags": ["protocol", "tool-use", "standard"],
+          "url": "https://modelcontextprotocol.io",
+          "relations": [
+            { "to": "A2A", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "A2A",
+          "type": "protocol",
+          "layers": ["cognition"],
+          "maturity": "assess",
+          "importance": 75,
+          "summary": "Google's Agent-to-Agent protocol enabling standardized communication between autonomous AI agents.",
+          "org": "Google",
+          "tags": ["protocol", "multi-agent", "standard"],
+          "url": "https://google.github.io/A2A",
+          "relations": [
+            { "to": "MCP", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Memory & Context",
+      "items": [
+        {
+          "name": "Mem0",
+          "type": "tool",
+          "layers": ["cognition"],
+          "maturity": "trial",
+          "importance": 74,
+          "summary": "Persistent memory layer for AI agents enabling cross-session user preference and context retention.",
+          "org": "Mem0",
+          "tags": ["memory", "persistence", "agent"],
+          "url": "https://mem0.ai",
+          "relations": [
+            { "to": "Zep", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Zep",
+          "type": "tool",
+          "layers": ["cognition"],
+          "maturity": "trial",
+          "importance": 66,
+          "summary": "Long-term memory store for LLM apps with built-in temporal reasoning over conversation history.",
+          "org": "Zep",
+          "tags": ["memory", "persistence", "conversation"],
+          "url": "https://getzep.com",
+          "relations": [
+            { "to": "Mem0", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Context Window",
+          "type": "concept",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 86,
+          "summary": "The finite token budget available to a model per inference call, the primary constraint shaping all long-context architecture decisions.",
+          "org": null,
+          "tags": ["memory", "context", "architecture"],
+          "url": "https://arxiv.org/abs/2307.03172",
+          "relations": [
+            { "to": "RAG", "type": "depends" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Reasoning Paradigms",
+      "items": [
+        {
+          "name": "RAG",
+          "type": "concept",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 93,
+          "summary": "Retrieval-Augmented Generation grounds LLM outputs in external knowledge, dominant pattern for reducing hallucination.",
+          "org": null,
+          "tags": ["retrieval", "grounding", "knowledge", "pattern"],
+          "url": "https://arxiv.org/abs/2005.11401",
+          "relations": [
+            { "to": "Context Window", "type": "depends" },
+            { "to": "Milvus", "type": "depends" }
+          ]
+        },
+        {
+          "name": "Chain-of-Thought",
+          "type": "concept",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 85,
+          "summary": "Prompting technique eliciting step-by-step reasoning, foundational to modern agent planning and reasoning models.",
+          "org": null,
+          "tags": ["reasoning", "prompting", "planning", "pattern"],
+          "url": "https://arxiv.org/abs/2201.11903",
+          "relations": [
+            { "to": "o3", "type": "depends" },
+            { "to": "DeepSeek R1", "type": "depends" }
+          ]
+        },
+        {
+          "name": "Function Calling",
+          "type": "concept",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 88,
+          "summary": "Structured mechanism for LLMs to invoke external tools via JSON schema, foundation of all tool-use agents.",
+          "org": null,
+          "tags": ["tool-use", "api", "pattern"],
+          "url": "https://platform.openai.com/docs/guides/function-calling",
+          "relations": [
+            { "to": "MCP", "type": "depends" }
+          ]
+        },
+        {
+          "name": "Prompt Engineering",
+          "type": "concept",
+          "layers": ["cognition"],
+          "maturity": "adopt",
+          "importance": 80,
+          "summary": "Systematic design of model inputs to reliably elicit desired outputs, the primary interface between humans and LLMs.",
+          "org": null,
+          "tags": ["prompting", "pattern", "human-ai"],
+          "url": "https://arxiv.org/abs/2302.11382",
+          "relations": [
+            { "to": "Chain-of-Thought", "type": "depends" }
+          ]
+        },
+        {
+          "name": "Fine-tuning",
+          "type": "concept",
+          "layers": ["cognition", "infra"],
+          "maturity": "adopt",
+          "importance": 84,
+          "summary": "Adapting a pretrained model on domain-specific data to improve task performance without full retraining.",
+          "org": null,
+          "tags": ["training", "adaptation", "pattern"],
+          "url": "https://arxiv.org/abs/2106.09685",
+          "relations": [
+            { "to": "Llama 3", "type": "depends" },
+            { "to": "Unsloth", "type": "depends" }
+          ]
+        }
+      ]
+    }
+  ]
+}

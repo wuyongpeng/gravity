@@ -1,0 +1,303 @@
+{
+  "category": "Infra",
+  "subtitle": "Infrastructure",
+  "description": "The compute, storage and serving layer that makes AI systems run at scale.",
+  "groups": [
+    {
+      "group": "GPU & Compute",
+      "items": [
+        {
+          "name": "CUDA",
+          "type": "framework",
+          "layers": ["infra"],
+          "maturity": "adopt",
+          "importance": 98,
+          "summary": "NVIDIA's parallel computing platform, the de facto standard for AI model training and inference.",
+          "org": "NVIDIA",
+          "tags": ["gpu", "compute", "training", "inference"],
+          "url": "https://developer.nvidia.com/cuda-toolkit",
+          "relations": [
+            { "to": "PyTorch", "type": "depends" },
+            { "to": "vLLM", "type": "depends" }
+          ]
+        },
+        {
+          "name": "ROCm",
+          "type": "framework",
+          "layers": ["infra"],
+          "maturity": "trial",
+          "importance": 62,
+          "summary": "AMD's open-source GPU compute platform, emerging alternative to CUDA for AI workloads.",
+          "org": "AMD",
+          "tags": ["gpu", "compute", "open-source"],
+          "url": "https://rocm.docs.amd.com",
+          "relations": [
+            { "to": "CUDA", "type": "alternative" },
+            { "to": "PyTorch", "type": "depends" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Model Serving",
+      "items": [
+        {
+          "name": "vLLM",
+          "type": "framework",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 92,
+          "summary": "High-throughput LLM inference engine with PagedAttention, the dominant open-source serving solution.",
+          "org": "vLLM Project",
+          "tags": ["serving", "inference", "throughput", "open-source"],
+          "url": "https://docs.vllm.ai",
+          "relations": [
+            { "to": "CUDA", "type": "depends" },
+            { "to": "TGI", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "TGI",
+          "type": "framework",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 78,
+          "summary": "HuggingFace's production-grade LLM serving toolkit with built-in quantization and streaming support.",
+          "org": "HuggingFace",
+          "tags": ["serving", "inference", "quantization"],
+          "url": "https://huggingface.co/docs/text-generation-inference",
+          "relations": [
+            { "to": "vLLM", "type": "alternative" },
+            { "to": "HuggingFace", "type": "ecosystem" }
+          ]
+        },
+        {
+          "name": "Ollama",
+          "type": "tool",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 85,
+          "summary": "Dead-simple local LLM runner that democratized self-hosted model deployment for developers.",
+          "org": "Ollama",
+          "tags": ["local", "serving", "developer-tool"],
+          "url": "https://ollama.com",
+          "relations": [
+            { "to": "vLLM", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Training & Fine-tuning",
+      "items": [
+        {
+          "name": "PyTorch",
+          "type": "framework",
+          "layers": ["infra"],
+          "maturity": "adopt",
+          "importance": 97,
+          "summary": "The dominant deep learning framework powering most AI research and production training pipelines.",
+          "org": "Meta",
+          "tags": ["training", "deep-learning", "open-source"],
+          "url": "https://pytorch.org",
+          "relations": [
+            { "to": "CUDA", "type": "depends" },
+            { "to": "TensorFlow", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "TensorFlow",
+          "type": "framework",
+          "layers": ["infra"],
+          "maturity": "hold",
+          "importance": 70,
+          "summary": "Google's deep learning framework, largely displaced by PyTorch in research but still active in production.",
+          "org": "Google",
+          "tags": ["training", "deep-learning"],
+          "url": "https://www.tensorflow.org",
+          "relations": [
+            { "to": "PyTorch", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Unsloth",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "trial",
+          "importance": 72,
+          "summary": "Fine-tuning accelerator that reduces VRAM usage and speeds up LoRA training by 2-5x.",
+          "org": "Unsloth AI",
+          "tags": ["fine-tuning", "lora", "efficiency"],
+          "url": "https://unsloth.ai",
+          "relations": [
+            { "to": "PyTorch", "type": "depends" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Vector Database",
+      "items": [
+        {
+          "name": "Milvus",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "adopt",
+          "importance": 82,
+          "summary": "Cloud-native vector database built for billion-scale similarity search in production RAG pipelines.",
+          "org": "Zilliz",
+          "tags": ["vector-db", "rag", "search", "open-source"],
+          "url": "https://milvus.io",
+          "relations": [
+            { "to": "Qdrant", "type": "alternative" },
+            { "to": "Weaviate", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Qdrant",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "adopt",
+          "importance": 78,
+          "summary": "High-performance vector search engine with payload filtering, favored for its Rust-based efficiency.",
+          "org": "Qdrant",
+          "tags": ["vector-db", "rag", "search", "open-source"],
+          "url": "https://qdrant.tech",
+          "relations": [
+            { "to": "Milvus", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Weaviate",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "trial",
+          "importance": 68,
+          "summary": "Vector database with native multimodal support and built-in ML model integrations.",
+          "org": "Weaviate",
+          "tags": ["vector-db", "multimodal", "rag"],
+          "url": "https://weaviate.io",
+          "relations": [
+            { "to": "Milvus", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Observability",
+      "items": [
+        {
+          "name": "LangSmith",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "adopt",
+          "importance": 80,
+          "summary": "Tracing and evaluation platform for LLM applications, tightly integrated with the LangChain ecosystem.",
+          "org": "LangChain",
+          "tags": ["observability", "tracing", "evaluation"],
+          "url": "https://smith.langchain.com",
+          "relations": [
+            { "to": "LangChain", "type": "ecosystem" },
+            { "to": "Langfuse", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Langfuse",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "trial",
+          "importance": 71,
+          "summary": "Open-source LLM observability platform with tracing, evals and prompt management.",
+          "org": "Langfuse",
+          "tags": ["observability", "tracing", "open-source"],
+          "url": "https://langfuse.com",
+          "relations": [
+            { "to": "LangSmith", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Gateway & Proxy",
+      "items": [
+        {
+          "name": "LiteLLM",
+          "type": "tool",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 83,
+          "summary": "Unified LLM proxy that normalizes 100+ model APIs into a single OpenAI-compatible interface.",
+          "org": "BerriAI",
+          "tags": ["gateway", "proxy", "multi-model"],
+          "url": "https://litellm.ai",
+          "relations": [
+            { "to": "OpenAI", "type": "depends" }
+          ]
+        },
+        {
+          "name": "OpenRouter",
+          "type": "tool",
+          "layers": ["infra"],
+          "maturity": "adopt",
+          "importance": 76,
+          "summary": "API marketplace routing requests across frontier models with unified billing and fallback logic.",
+          "org": "OpenRouter",
+          "tags": ["gateway", "routing", "multi-model"],
+          "url": "https://openrouter.ai",
+          "relations": [
+            { "to": "LiteLLM", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Cloud Platform",
+      "items": [
+        {
+          "name": "AWS Bedrock",
+          "type": "tool",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 85,
+          "summary": "Managed AWS service providing unified API access to frontier models with enterprise security.",
+          "org": "AWS",
+          "tags": ["cloud", "managed", "enterprise"],
+          "url": "https://aws.amazon.com/bedrock",
+          "relations": [
+            { "to": "Google Vertex AI", "type": "alternative" },
+            { "to": "Azure AI Foundry", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Google Vertex AI",
+          "type": "tool",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 82,
+          "summary": "Google Cloud's unified ML platform integrating Gemini models with enterprise MLOps tooling.",
+          "org": "Google",
+          "tags": ["cloud", "managed", "mlops"],
+          "url": "https://cloud.google.com/vertex-ai",
+          "relations": [
+            { "to": "AWS Bedrock", "type": "alternative" }
+          ]
+        },
+        {
+          "name": "Azure AI Foundry",
+          "type": "tool",
+          "layers": ["infra", "runtime"],
+          "maturity": "adopt",
+          "importance": 80,
+          "summary": "Microsoft's enterprise AI platform with OpenAI model access, fine-tuning and responsible AI tooling.",
+          "org": "Microsoft",
+          "tags": ["cloud", "managed", "enterprise"],
+          "url": "https://ai.azure.com",
+          "relations": [
+            { "to": "AWS Bedrock", "type": "alternative" },
+            { "to": "OpenAI", "type": "ecosystem" }
+          ]
+        }
+      ]
+    }
+  ]
+}
