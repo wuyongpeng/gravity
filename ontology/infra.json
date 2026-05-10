@@ -7,6 +7,7 @@
       "group": "GPU & Compute",
       "items": [
         {
+          "id": 1,
           "name": "CUDA",
           "type": "framework",
           "layers": ["infra"],
@@ -22,6 +23,7 @@
           ]
         },
         {
+          "id": 2,
           "name": "ROCm",
           "type": "framework",
           "layers": ["infra"],
@@ -42,6 +44,7 @@
       "group": "Model Serving",
       "items": [
         {
+          "id": 3,
           "name": "vLLM",
           "type": "framework",
           "layers": ["infra", "runtime"],
@@ -57,6 +60,7 @@
           ]
         },
         {
+          "id": 4,
           "name": "TGI",
           "type": "framework",
           "layers": ["infra", "runtime"],
@@ -72,6 +76,7 @@
           ]
         },
         {
+          "id": 5,
           "name": "Ollama",
           "type": "tool",
           "layers": ["infra", "runtime"],
@@ -91,6 +96,7 @@
       "group": "Training & Fine-tuning",
       "items": [
         {
+          "id": 6,
           "name": "PyTorch",
           "type": "framework",
           "layers": ["infra"],
@@ -106,6 +112,7 @@
           ]
         },
         {
+          "id": 7,
           "name": "TensorFlow",
           "type": "framework",
           "layers": ["infra"],
@@ -120,6 +127,7 @@
           ]
         },
         {
+          "id": 8,
           "name": "Unsloth",
           "type": "tool",
           "layers": ["infra"],
@@ -139,6 +147,7 @@
       "group": "Vector Database",
       "items": [
         {
+          "id": 9,
           "name": "Milvus",
           "type": "tool",
           "layers": ["infra"],
@@ -154,6 +163,7 @@
           ]
         },
         {
+          "id": 10,
           "name": "Qdrant",
           "type": "tool",
           "layers": ["infra"],
@@ -168,6 +178,7 @@
           ]
         },
         {
+          "id": 11,
           "name": "Weaviate",
           "type": "tool",
           "layers": ["infra"],
@@ -187,6 +198,7 @@
       "group": "Observability",
       "items": [
         {
+          "id": 12,
           "name": "LangSmith",
           "type": "tool",
           "layers": ["infra"],
@@ -202,6 +214,7 @@
           ]
         },
         {
+          "id": 13,
           "name": "Langfuse",
           "type": "tool",
           "layers": ["infra"],
@@ -221,6 +234,7 @@
       "group": "Gateway & Proxy",
       "items": [
         {
+          "id": 14,
           "name": "LiteLLM",
           "type": "tool",
           "layers": ["infra", "runtime"],
@@ -235,6 +249,7 @@
           ]
         },
         {
+          "id": 15,
           "name": "OpenRouter",
           "type": "tool",
           "layers": ["infra"],
@@ -254,6 +269,7 @@
       "group": "Cloud Platform",
       "items": [
         {
+          "id": 16,
           "name": "AWS Bedrock",
           "type": "tool",
           "layers": ["infra", "runtime"],
@@ -269,6 +285,7 @@
           ]
         },
         {
+          "id": 17,
           "name": "Google Vertex AI",
           "type": "tool",
           "layers": ["infra", "runtime"],
@@ -283,6 +300,7 @@
           ]
         },
         {
+          "id": 18,
           "name": "Azure AI Foundry",
           "type": "tool",
           "layers": ["infra", "runtime"],

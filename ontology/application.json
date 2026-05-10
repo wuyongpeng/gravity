@@ -7,6 +7,7 @@
       "group": "General Assistant",
       "items": [
         {
+          "id": 75,
           "name": "ChatGPT",
           "type": "tool",
           "layers": ["application"],
@@ -22,6 +23,7 @@
           ]
         },
         {
+          "id": 76,
           "name": "Claude",
           "type": "tool",
           "layers": ["application"],
@@ -37,6 +39,7 @@
           ]
         },
         {
+          "id": 77,
           "name": "Gemini",
           "type": "tool",
           "layers": ["application"],
@@ -56,6 +59,7 @@
       "group": "Coding Assistant",
       "items": [
         {
+          "id": 78,
           "name": "Cursor",
           "type": "tool",
           "layers": ["application"],
@@ -71,6 +75,7 @@
           ]
         },
         {
+          "id": 79,
           "name": "Antigravity",
           "type": "tool",
           "layers": ["application"],
@@ -85,6 +90,7 @@
           ]
         },
         {
+          "id": 80,
           "name": "GitHub Copilot",
           "type": "tool",
           "layers": ["application"],

@@ -7,6 +7,7 @@
       "group": "Workflow Engine",
       "items": [
         {
+          "id": 50,
           "name": "Temporal",
           "type": "framework",
           "layers": ["orchestration"],
@@ -22,6 +23,7 @@
           ]
         },
         {
+          "id": 51,
           "name": "Prefect",
           "type": "framework",
           "layers": ["orchestration"],
@@ -37,6 +39,7 @@
           ]
         },
         {
+          "id": 52,
           "name": "Airflow",
           "type": "framework",
           "layers": ["orchestration"],
@@ -57,6 +60,7 @@
       "group": "Agent Orchestration",
       "items": [
         {
+          "id": 53,
           "name": "LangGraph",
           "type": "framework",
           "layers": ["cognition", "orchestration"],
@@ -72,6 +76,7 @@
           ]
         },
         {
+          "id": 54,
           "name": "CrewAI",
           "type": "framework",
           "layers": ["cognition", "orchestration"],
@@ -87,6 +92,7 @@
           ]
         },
         {
+          "id": 55,
           "name": "Dify",
           "type": "tool",
           "layers": ["orchestration", "application"],
@@ -102,6 +108,7 @@
           ]
         },
         {
+          "id": 56,
           "name": "Flowise",
           "type": "tool",
           "layers": ["orchestration"],
@@ -117,6 +124,7 @@
           ]
         },
         {
+          "id": 57,
           "name": "n8n",
           "type": "tool",
           "layers": ["orchestration"],
@@ -131,6 +139,7 @@
           ]
         },
         {
+          "id": 58,
           "name": "Zapier",
           "type": "tool",
           "layers": ["orchestration", "application"],
@@ -150,6 +159,7 @@
       "group": "RPA & Computer Use",
       "items": [
         {
+          "id": 59,
           "name": "Browser Use",
           "type": "tool",
           "layers": ["orchestration"],
@@ -165,6 +175,7 @@
           ]
         },
         {
+          "id": 60,
           "name": "Stagehand",
           "type": "tool",
           "layers": ["orchestration"],
@@ -180,6 +191,7 @@
           ]
         },
         {
+          "id": 61,
           "name": "Playwright",
           "type": "tool",
           "layers": ["orchestration"],
@@ -199,6 +211,7 @@
       "group": "Evaluation & Observability",
       "items": [
         {
+          "id": 62,
           "name": "LangSmith",
           "type": "tool",
           "layers": ["orchestration", "infra"],
@@ -214,6 +227,7 @@
           ]
         },
         {
+          "id": 63,
           "name": "Langfuse",
           "type": "tool",
           "layers": ["orchestration", "infra"],
@@ -233,6 +247,7 @@
       "group": "Orchestration Concept",
       "items": [
         {
+          "id": 64,
           "name": "Agentic Loop",
           "type": "concept",
           "layers": ["orchestration"],
@@ -248,6 +263,7 @@
           ]
         },
         {
+          "id": 65,
           "name": "Human-in-the-Loop",
           "type": "concept",
           "layers": ["orchestration"],

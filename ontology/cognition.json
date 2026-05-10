@@ -7,6 +7,7 @@
       "group": "Frontier Model",
       "items": [
         {
+          "id": 25,
           "name": "GPT-4o",
           "type": "model",
           "layers": ["cognition"],
@@ -22,6 +23,7 @@
           ]
         },
         {
+          "id": 26,
           "name": "o3",
           "type": "model",
           "layers": ["cognition"],
@@ -37,6 +39,7 @@
           ]
         },
         {
+          "id": 27,
           "name": "Claude 3.7 Sonnet",
           "type": "model",
           "layers": ["cognition"],
@@ -52,6 +55,7 @@
           ]
         },
         {
+          "id": 28,
           "name": "Gemini 2.5 Pro",
           "type": "model",
           "layers": ["cognition"],
@@ -66,6 +70,7 @@
           ]
         },
         {
+          "id": 29,
           "name": "Llama 3",
           "type": "model",
           "layers": ["cognition", "infra"],
@@ -81,6 +86,7 @@
           ]
         },
         {
+          "id": 30,
           "name": "Mistral Large",
           "type": "model",
           "layers": ["cognition"],
@@ -95,6 +101,7 @@
           ]
         },
         {
+          "id": 31,
           "name": "DeepSeek R1",
           "type": "model",
           "layers": ["cognition"],
@@ -115,6 +122,7 @@
       "group": "Protocol",
       "items": [
         {
+          "id": 32,
           "name": "MCP",
           "type": "protocol",
           "layers": ["cognition"],
@@ -129,6 +137,7 @@
           ]
         },
         {
+          "id": 33,
           "name": "A2A",
           "type": "protocol",
           "layers": ["cognition"],
@@ -148,6 +157,7 @@
       "group": "Memory & Context",
       "items": [
         {
+          "id": 34,
           "name": "Mem0",
           "type": "tool",
           "layers": ["cognition"],
@@ -162,6 +172,7 @@
           ]
         },
         {
+          "id": 35,
           "name": "Zep",
           "type": "tool",
           "layers": ["cognition"],
@@ -176,6 +187,7 @@
           ]
         },
         {
+          "id": 36,
           "name": "Context Window",
           "type": "concept",
           "layers": ["cognition"],
@@ -195,6 +207,7 @@
       "group": "Reasoning Paradigms",
       "items": [
         {
+          "id": 37,
           "name": "RAG",
           "type": "concept",
           "layers": ["cognition"],
@@ -210,6 +223,7 @@
           ]
         },
         {
+          "id": 38,
           "name": "Chain-of-Thought",
           "type": "concept",
           "layers": ["cognition"],
@@ -225,6 +239,7 @@
           ]
         },
         {
+          "id": 39,
           "name": "Function Calling",
           "type": "concept",
           "layers": ["cognition"],
@@ -239,6 +254,7 @@
           ]
         },
         {
+          "id": 40,
           "name": "Prompt Engineering",
           "type": "concept",
           "layers": ["cognition"],
@@ -253,6 +269,7 @@
           ]
         },
         {
+          "id": 41,
           "name": "Fine-tuning",
           "type": "concept",
           "layers": ["cognition", "infra"],
