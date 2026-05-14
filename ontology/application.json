@@ -2,8 +2,18 @@
   "category": "Application",
   "subtitle": "Products & Platforms",
   "description": "End-user products and platforms where AI capability is delivered as tangible value.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "modality",
+    "interaction",
+    "business",
+    "reasoning",
+    "memory",
+    "security"
+  ],
   "groups": [
-      {
+    {
       "group": "General Assistant",
       "items": [
         {
@@ -17,9 +27,55 @@
           "org": "OpenAI",
           "tags": ["assistant", "consumer", "multimodal"],
           "url": "https://chatgpt.com",
+          "perspectives": {
+            "radar": {
+              "group": "General Assistant",
+              "quadrant": "adopt"
+            },
+            "deployment": {
+              "type": "cloud",
+              "hosting": "managed-api"
+            },
+            "modality": {
+              "input": ["text", "image", "audio"],
+              "output": ["text", "image", "audio"]
+            },
+            "interaction": {
+              "mode": ["chat", "voice", "agentic"],
+              "audience": ["consumer", "enterprise"]
+            },
+            "reasoning": {
+              "supports": [
+                "tool-use",
+                "deep-reasoning",
+                "memory",
+                "multi-step-planning"
+              ]
+            },
+            "memory": {
+              "persistent_memory": true,
+              "context_strategy": ["memory", "retrieval", "long-context"]
+            },
+            "business": {
+              "model": "subscription + api",
+              "target": ["consumer", "enterprise"]
+            },
+            "security": {
+              "data_control": "managed",
+              "compliance": ["enterprise", "team"]
+            }
+          },
           "relations": [
-            { "to": "Claude", "type": "alternative" },
-            { "to": "Gemini", "type": "alternative" }
+            {
+              "to": "Claude",
+              "type": "alternative",
+              "perspectives": ["radar", "business"]
+            },
+            {
+              "to": "Gemini",
+              "type": "alternative",
+              "perspectives": ["radar", "modality"]
+            }
           ]
         },
         {
@@ -33,9 +89,54 @@
           "org": "Anthropic",
           "tags": ["assistant", "consumer", "reasoning"],
           "url": "https://claude.ai",
+          "perspectives": {
+            "radar": {
+              "group": "General Assistant",
+              "quadrant": "adopt"
+            },
+            "deployment": {
+              "type": "cloud",
+              "hosting": "managed-api"
+            },
+            "modality": {
+              "input": ["text", "document", "image"],
+              "output": ["text"]
+            },
+            "interaction": {
+              "mode": ["chat", "coding", "analysis"],
+              "audience": ["consumer", "developer", "enterprise"]
+            },
+            "reasoning": {
+              "supports": [
+                "extended-thinking",
+                "tool-use",
+                "coding"
+              ]
+            },
+            "memory": {
+              "persistent_memory": false,
+              "context_strategy": ["long-context"]
+            },
+            "business": {
+              "model": "subscription + api",
+              "target": ["consumer", "enterprise"]
+            },
+            "security": {
+              "data_control": "managed",
+              "alignment_focus": "constitutional-ai"
+            }
+          },
           "relations": [
-            { "to": "ChatGPT", "type": "alternative" },
-            { "to": "Gemini", "type": "alternative" }
+            {
+              "to": "ChatGPT",
+              "type": "alternative",
+              "perspectives": ["radar", "reasoning"]
+            },
+            {
+              "to": "Gemini",
+              "type": "alternative",
+              "perspectives": ["modality"]
+            }
           ]
         },
         {
@@ -49,8 +150,49 @@
           "org": "Google",
           "tags": ["assistant", "consumer", "multimodal"],
           "url": "https://gemini.google.com",
+          "perspectives": {
+            "radar": {
+              "group": "General Assistant",
+              "quadrant": "adopt"
+            },
+            "deployment": {
+              "type": "cloud",
+              "hosting": "managed-api"
+            },
+            "modality": {
+              "input": ["text", "image", "audio", "video"],
+              "output": ["text", "image"]
+            },
+            "interaction": {
+              "mode": ["chat", "search", "workspace-assistant"],
+              "audience": ["consumer", "enterprise"]
+            },
+            "reasoning": {
+              "supports": [
+                "multimodal-reasoning",
+                "retrieval",
+                "tool-use"
+              ]
+            },
+            "memory": {
+              "persistent_memory": true,
+              "context_strategy": ["workspace-context", "retrieval"]
+            },
+            "business": {
+              "model": "subscription + workspace",
+              "target": ["consumer", "enterprise"]
+            },
+            "security": {
+              "data_control": "managed",
+              "compliance": ["workspace", "enterprise"]
+            }
+          },
           "relations": [
-            { "to": "ChatGPT", "type": "alternative" }
+            {
+              "to": "ChatGPT",
+              "type": "alternative",
+              "perspectives": ["radar", "business"]
+            }
           ]
         }
       ]
@@ -69,9 +211,45 @@
           "org": "Anysphere",
           "tags": ["coding", "ide", "agentic"],
           "url": "https://cursor.com",
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "quadrant": "adopt"
+            },
+            "deployment": {
+              "type": "desktop + cloud"
+            },
+            "interaction": {
+              "mode": ["ide", "agentic-coding"],
+              "audience": ["developer"]
+            },
+            "reasoning": {
+              "supports": [
+                "code-editing",
+                "tool-use",
+                "multi-file-reasoning"
+              ]
+            },
+            "memory": {
+              "persistent_memory": true,
+              "context_strategy": ["repo-context", "embedding-index"]
+            },
+            "business": {
+              "model": "subscription",
+              "target": ["developer", "team"]
+            }
+          },
           "relations": [
-            { "to": "Antigravity", "type": "alternative" },
-            { "to": "Windsurf", "type": "alternative" }
+            {
+              "to": "Antigravity",
+              "type": "alternative",
+              "perspectives": ["radar", "interaction"]
+            },
+            {
+              "to": "GitHub Copilot",
+              "type": "alternative",
+              "perspectives": ["business"]
+            }
           ]
         },
         {
@@ -85,8 +263,36 @@
           "org": "Google",
           "tags": ["coding", "ide", "agentic", "multi-agent"],
           "url": "https://antigravity.google/",
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "quadrant": "adopt"
+            },
+            "interaction": {
+              "mode": [
+                "ide",
+                "multi-agent",
+                "computer-use"
+              ],
+              "audience": ["developer", "enterprise"]
+            },
+            "reasoning": {
+              "supports": [
+                "agentic-loop",
+                "multi-step-execution"
+              ]
+            },
+            "business": {
+              "model": "enterprise",
+              "target": ["enterprise"]
+            }
+          },
           "relations": [
-            { "to": "Cursor", "type": "alternative" }
+            {
+              "to": "Cursor",
+              "type": "alternative",
+              "perspectives": ["interaction"]
+            }
           ]
         },
         {
@@ -100,8 +306,29 @@
           "org": "Microsoft",
           "tags": ["coding", "ide", "enterprise"],
           "url": "https://github.com/features/copilot",
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "quadrant": "adopt"
+            },
+            "interaction": {
+              "mode": ["ide", "autocomplete"],
+              "audience": ["developer", "enterprise"]
+            },
+            "business": {
+              "model": "subscription",
+              "target": ["enterprise", "developer"]
+            },
+            "security": {
+              "compliance": ["enterprise", "github-ecosystem"]
+            }
+          },
           "relations": [
-            { "to": "Cursor", "type": "alternative" }
+            {
+              "to": "Cursor",
+              "type": "alternative",
+              "perspectives": ["business"]
+            }
           ]
         },
         {
@@ -115,6 +342,25 @@
           "org": "Anthropic",
           "tags": ["coding", "cli", "agentic"],
           "url": "https://claude.ai/code",
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "quadrant": "trial"
+            },
+            "interaction": {
+              "mode": ["cli", "agentic"],
+              "audience": ["developer"]
+            },
+            "reasoning": {
+              "supports": [
+                "terminal-tool-use",
+                "long-context-reasoning"
+              ]
+            },
+            "deployment": {
+              "type": "local + cloud"
+            }
+          },
           "relations": []
         }
       ]
@@ -133,6 +379,18 @@
           "org": "Midjourney",
           "tags": ["image", "generative", "creative"],
           "url": "https://midjourney.com",
+          "perspectives": {
+            "modality": {
+              "input": ["text"],
+              "output": ["image"]
+            },
+            "interaction": {
+              "mode": ["creative-generation"]
+            },
+            "business": {
+              "model": "subscription"
+            }
+          },
           "relations": []
         },
         {
@@ -146,6 +404,18 @@
           "org": "Stability AI",
           "tags": ["image", "generative", "open-weight"],
           "url": "https://stability.ai",
+          "perspectives": {
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "modality": {
+              "input": ["text", "image"],
+              "output": ["image"]
+            },
+            "business": {
+              "model": "open-weight"
+            }
+          },
           "relations": []
         },
         {
@@ -159,6 +429,15 @@
           "org": "ElevenLabs",
           "tags": ["voice", "audio", "generative"],
           "url": "https://elevenlabs.io",
+          "perspectives": {
+            "modality": {
+              "input": ["text", "voice"],
+              "output": ["audio"]
+            },
+            "interaction": {
+              "mode": ["voice-generation"]
+            }
+          },
           "relations": []
         },
         {
@@ -172,6 +451,15 @@
           "org": "Synthesia",
           "tags": ["video", "generative", "enterprise"],
           "url": "https://synthesia.io",
+          "perspectives": {
+            "modality": {
+              "input": ["text"],
+              "output": ["video"]
+            },
+            "business": {
+              "target": ["enterprise", "marketing"]
+            }
+          },
           "relations": []
         }
       ]
@@ -190,8 +478,23 @@
           "org": "Perplexity AI",
           "tags": ["search", "research", "retrieval"],
           "url": "https://perplexity.ai",
+          "perspectives": {
+            "interaction": {
+              "mode": ["search", "research"]
+            },
+            "reasoning": {
+              "supports": ["retrieval", "citation-grounding"]
+            },
+            "memory": {
+              "context_strategy": ["web-retrieval"]
+            }
+          },
           "relations": [
-            { "to": "ChatGPT", "type": "alternative" }
+            {
+              "to": "ChatGPT",
+              "type": "alternative",
+              "perspectives": ["interaction"]
+            }
           ]
         },
         {
@@ -205,8 +508,23 @@
           "org": "Google",
           "tags": ["research", "documents", "grounding"],
           "url": "https://notebooklm.google.com",
+          "perspectives": {
+            "interaction": {
+              "mode": ["research", "knowledge-synthesis"]
+            },
+            "reasoning": {
+              "supports": ["grounded-generation"]
+            },
+            "memory": {
+              "context_strategy": ["document-grounding"]
+            }
+          },
           "relations": [
-            { "to": "Perplexity", "type": "alternative" }
+            {
+              "to": "Perplexity",
+              "type": "alternative",
+              "perspectives": ["interaction"]
+            }
           ]
         }
       ]
@@ -225,8 +543,23 @@
           "org": "Notion",
           "tags": ["productivity", "knowledge", "writing"],
           "url": "https://notion.so/product/ai",
+          "perspectives": {
+            "interaction": {
+              "mode": ["workspace-assistant"]
+            },
+            "memory": {
+              "context_strategy": ["workspace-memory"]
+            },
+            "business": {
+              "target": ["team", "knowledge-worker"]
+            }
+          },
           "relations": [
-            { "to": "Mem0", "type": "alternative" }
+            {
+              "to": "Mem0",
+              "type": "alternative",
+              "perspectives": ["memory"]
+            }
           ]
         },
         {
@@ -240,8 +573,23 @@
           "org": "Glean",
           "tags": ["enterprise", "search", "knowledge"],
           "url": "https://glean.com",
+          "perspectives": {
+            "interaction": {
+              "mode": ["enterprise-search"]
+            },
+            "memory": {
+              "context_strategy": ["enterprise-retrieval"]
+            },
+            "business": {
+              "target": ["enterprise"]
+            }
+          },
           "relations": [
-            { "to": "Notion AI", "type": "alternative" }
+            {
+              "to": "Notion AI",
+              "type": "alternative",
+              "perspectives": ["business"]
+            }
           ]
         },
         {
@@ -255,8 +603,21 @@
           "org": "Rewind AI",
           "tags": ["memory", "productivity", "personal"],
           "url": "https://rewind.ai",
+          "perspectives": {
+            "memory": {
+              "persistent_memory": true,
+              "context_strategy": ["personal-activity-log"]
+            },
+            "interaction": {
+              "mode": ["personal-memory"]
+            }
+          },
           "relations": [
-            { "to": "Mem0", "type": "alternative" }
+            {
+              "to": "Mem0",
+              "type": "alternative",
+              "perspectives": ["memory"]
+            }
           ]
         }
       ]
@@ -275,9 +636,20 @@
           "org": "Harvey",
           "tags": ["legal", "enterprise", "vertical"],
           "url": "https://harvey.ai",
+          "perspectives": {
+            "interaction": {
+              "mode": ["legal-assistant"]
+            },
+            "business": {
+              "target": ["legal-enterprise"]
+            },
+            "security": {
+              "compliance": ["enterprise", "legal"]
+            }
+          },
           "relations": []
         }
       ]
     }
- ]
+  ]
 }

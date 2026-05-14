@@ -10,49 +10,123 @@
           "id": 50,
           "name": "Temporal",
           "type": "framework",
-          "layers": ["orchestration"],
-          "maturity": "trial",
-          "importance": 82,
           "summary": "Durable workflow engine that persists execution state, enabling long-running and fault-tolerant AI task pipelines.",
           "org": "Temporal Technologies",
-          "tags": ["workflow", "durable", "fault-tolerant", "scheduling"],
           "url": "https://temporal.io",
+          "tags": ["workflow", "durable", "fault-tolerant", "scheduling"],
           "relations": [
-            { "to": "Prefect", "type": "alternative" },
-            { "to": "Airflow", "type": "alternative" }
-          ]
+            {
+              "target": "Prefect",
+              "type": "alternative"
+            },
+            {
+              "target": "Airflow",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "trial",
+              "importance": 82
+            },
+            "lifecycle": {
+              "stage": "task-execution",
+              "substage": "durable-workflow"
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "workflow-runtime"
+            },
+            "performance": {
+              "focus": ["fault-tolerance", "long-running-execution"]
+            },
+            "decision": {
+              "positioning": "durable-agent-backbone"
+            }
+          }
         },
         {
           "id": 51,
           "name": "Prefect",
           "type": "framework",
-          "layers": ["orchestration"],
-          "maturity": "trial",
-          "importance": 74,
           "summary": "Python-native workflow orchestration with dynamic DAG support, increasingly adopted for AI pipeline management.",
           "org": "Prefect",
-          "tags": ["workflow", "python", "dag", "scheduling"],
           "url": "https://prefect.io",
+          "tags": ["workflow", "python", "dag", "scheduling"],
           "relations": [
-            { "to": "Temporal", "type": "alternative" },
-            { "to": "Airflow", "type": "alternative" }
-          ]
+            {
+              "target": "Temporal",
+              "type": "alternative"
+            },
+            {
+              "target": "Airflow",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "trial",
+              "importance": 74
+            },
+            "lifecycle": {
+              "stage": "pipeline-orchestration"
+            },
+            "deployment": {
+              "type": "hybrid"
+            },
+            "stack": {
+              "layer": "workflow-runtime"
+            },
+            "decision": {
+              "positioning": "pythonic-ai-orchestrator"
+            }
+          }
         },
         {
           "id": 52,
           "name": "Airflow",
           "type": "framework",
-          "layers": ["orchestration"],
-          "maturity": "adopt",
-          "importance": 76,
           "summary": "Battle-tested DAG-based workflow scheduler, widely used in data pipelines but increasingly stretched by AI workloads.",
           "org": "Apache",
-          "tags": ["workflow", "dag", "scheduling", "open-source"],
           "url": "https://airflow.apache.org",
+          "tags": ["workflow", "dag", "scheduling", "open-source"],
           "relations": [
-            { "to": "Prefect", "type": "alternative" },
-            { "to": "Temporal", "type": "alternative" }
-          ]
+            {
+              "target": "Prefect",
+              "type": "alternative"
+            },
+            {
+              "target": "Temporal",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "adopt",
+              "importance": 76
+            },
+            "lifecycle": {
+              "stage": "batch-scheduling"
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "stack": {
+              "layer": "workflow-scheduler"
+            },
+            "performance": {
+              "focus": ["batch-processing"]
+            },
+            "decision": {
+              "positioning": "legacy-data-orchestrator"
+            }
+          }
         }
       ]
     },
@@ -63,95 +137,221 @@
           "id": 53,
           "name": "LangGraph",
           "type": "framework",
-          "layers": ["cognition", "orchestration"],
-          "maturity": "trial",
-          "importance": 91,
           "summary": "Stateful graph-based orchestration for multi-agent systems, emerging standard for complex agent workflows.",
           "org": "LangChain",
-          "tags": ["agent", "multi-agent", "stateful", "graph"],
           "url": "https://langchain.com/langgraph",
+          "tags": ["agent", "multi-agent", "stateful", "graph"],
           "relations": [
-            { "to": "CrewAI", "type": "alternative" },
-            { "to": "LangChain", "type": "ecosystem" }
-          ]
+            {
+              "target": "CrewAI",
+              "type": "alternative"
+            },
+            {
+              "target": "LangChain",
+              "type": "ecosystem"
+            },
+            {
+              "target": "Agentic Loop",
+              "type": "implements"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "trial",
+              "importance": 91
+            },
+            "lifecycle": {
+              "stage": "agent-coordination"
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "stack": {
+              "layer": "agent-runtime"
+            },
+            "performance": {
+              "focus": ["stateful-execution", "multi-agent-coordination"]
+            },
+            "decision": {
+              "positioning": "stateful-agent-standard"
+            }
+          }
         },
         {
           "id": 54,
           "name": "CrewAI",
           "type": "framework",
-          "layers": ["cognition", "orchestration"],
-          "maturity": "trial",
-          "importance": 80,
           "summary": "Role-based multi-agent framework focused on collaborative task execution with minimal boilerplate.",
           "org": "CrewAI",
-          "tags": ["multi-agent", "role-based", "python"],
           "url": "https://crewai.com",
+          "tags": ["multi-agent", "role-based", "python"],
           "relations": [
-            { "to": "LangGraph", "type": "alternative" },
-            { "to": "AutoGen", "type": "alternative" }
-          ]
+            {
+              "target": "LangGraph",
+              "type": "alternative"
+            },
+            {
+              "target": "AutoGen",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "trial",
+              "importance": 80
+            },
+            "lifecycle": {
+              "stage": "agent-collaboration"
+            },
+            "stack": {
+              "layer": "agent-framework"
+            },
+            "decision": {
+              "positioning": "role-based-multi-agent-framework"
+            }
+          }
         },
         {
           "id": 55,
           "name": "Dify",
           "type": "tool",
-          "layers": ["orchestration", "application"],
-          "maturity": "adopt",
-          "importance": 83,
           "summary": "Visual LLM workflow builder with built-in RAG, tool integration and one-click deployment for production agents.",
           "org": "Dify",
-          "tags": ["visual", "workflow", "rag", "no-code"],
           "url": "https://dify.ai",
+          "tags": ["visual", "workflow", "rag", "no-code"],
           "relations": [
-            { "to": "Flowise", "type": "alternative" },
-            { "to": "LangChain", "type": "depends" }
-          ]
+            {
+              "target": "Flowise",
+              "type": "alternative"
+            },
+            {
+              "target": "LangChain",
+              "type": "depends"
+            },
+            {
+              "target": "RAG",
+              "type": "implements"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "adopt",
+              "importance": 83
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "stack": {
+              "layer": "visual-agent-platform"
+            },
+            "modalities": {
+              "supported": ["text"]
+            },
+            "decision": {
+              "positioning": "low-code-agent-platform"
+            }
+          }
         },
         {
           "id": 56,
           "name": "Flowise",
           "type": "tool",
-          "layers": ["orchestration"],
-          "maturity": "trial",
-          "importance": 70,
           "summary": "Open-source drag-and-drop UI for building LangChain-based agent workflows without writing code.",
           "org": "Flowise",
-          "tags": ["visual", "workflow", "no-code", "open-source"],
           "url": "https://flowiseai.com",
+          "tags": ["visual", "workflow", "no-code", "open-source"],
           "relations": [
-            { "to": "Dify", "type": "alternative" },
-            { "to": "LangChain", "type": "depends" }
-          ]
+            {
+              "target": "Dify",
+              "type": "alternative"
+            },
+            {
+              "target": "LangChain",
+              "type": "depends"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "trial",
+              "importance": 70
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "stack": {
+              "layer": "visual-agent-builder"
+            },
+            "decision": {
+              "positioning": "open-source-workflow-builder"
+            }
+          }
         },
         {
           "id": 57,
           "name": "n8n",
           "type": "tool",
-          "layers": ["orchestration"],
-          "maturity": "adopt",
-          "importance": 78,
           "summary": "Open-source workflow automation platform rapidly adopted as the self-hosted backbone for AI-augmented business processes.",
           "org": "n8n",
-          "tags": ["automation", "workflow", "no-code", "open-source"],
           "url": "https://n8n.io",
+          "tags": ["automation", "workflow", "no-code", "open-source"],
           "relations": [
-            { "to": "Zapier", "type": "alternative" }
-          ]
+            {
+              "target": "Zapier",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "adopt",
+              "importance": 78
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "stack": {
+              "layer": "business-automation"
+            },
+            "decision": {
+              "positioning": "self-hosted-zapier-alternative"
+            }
+          }
         },
         {
           "id": 58,
           "name": "Zapier",
           "type": "tool",
-          "layers": ["orchestration", "application"],
-          "maturity": "adopt",
-          "importance": 72,
           "summary": "Cloud automation platform connecting 6000+ apps, adding AI actions as a layer on top of existing integrations.",
           "org": "Zapier",
-          "tags": ["automation", "integration", "no-code"],
           "url": "https://zapier.com",
+          "tags": ["automation", "integration", "no-code"],
           "relations": [
-            { "to": "n8n", "type": "alternative" }
-          ]
+            {
+              "target": "n8n",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "adopt",
+              "importance": 72
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "control_level": "low"
+            },
+            "stack": {
+              "layer": "business-automation"
+            },
+            "decision": {
+              "positioning": "managed-no-code-automation"
+            }
+          }
         }
       ]
     },
@@ -162,48 +362,105 @@
           "id": 59,
           "name": "Browser Use",
           "type": "tool",
-          "layers": ["orchestration"],
-          "maturity": "trial",
-          "importance": 79,
           "summary": "Open-source library enabling LLMs to control browsers via structured actions, foundation of web automation agents.",
           "org": "Browser Use",
-          "tags": ["browser", "automation", "computer-use", "open-source"],
           "url": "https://browser-use.com",
+          "tags": ["browser", "automation", "computer-use", "open-source"],
           "relations": [
-            { "to": "Playwright", "type": "depends" },
-            { "to": "Stagehand", "type": "alternative" }
-          ]
+            {
+              "target": "Playwright",
+              "type": "depends"
+            },
+            {
+              "target": "Stagehand",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "RPA & Computer Use",
+              "maturity": "trial",
+              "importance": 79
+            },
+            "lifecycle": {
+              "stage": "computer-execution"
+            },
+            "stack": {
+              "layer": "browser-agent-runtime"
+            },
+            "modalities": {
+              "supported": ["web-ui"]
+            },
+            "decision": {
+              "positioning": "open-browser-agent-framework"
+            }
+          }
         },
         {
           "id": 60,
           "name": "Stagehand",
           "type": "tool",
-          "layers": ["orchestration"],
-          "maturity": "assess",
-          "importance": 65,
           "summary": "Browserbase's AI web automation SDK combining Playwright with LLM-powered element targeting.",
           "org": "Browserbase",
-          "tags": ["browser", "automation", "computer-use"],
           "url": "https://stagehand.dev",
+          "tags": ["browser", "automation", "computer-use"],
           "relations": [
-            { "to": "Browser Use", "type": "alternative" },
-            { "to": "Playwright", "type": "depends" }
-          ]
+            {
+              "target": "Browser Use",
+              "type": "alternative"
+            },
+            {
+              "target": "Playwright",
+              "type": "depends"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "RPA & Computer Use",
+              "maturity": "assess",
+              "importance": 65
+            },
+            "lifecycle": {
+              "stage": "computer-execution"
+            },
+            "stack": {
+              "layer": "browser-agent-sdk"
+            },
+            "decision": {
+              "positioning": "llm-enhanced-browser-sdk"
+            }
+          }
         },
         {
           "id": 61,
           "name": "Playwright",
           "type": "tool",
-          "layers": ["orchestration"],
-          "maturity": "adopt",
-          "importance": 80,
           "summary": "Microsoft's cross-browser automation library, the dominant low-level substrate for AI browser control agents.",
           "org": "Microsoft",
-          "tags": ["browser", "automation", "testing"],
           "url": "https://playwright.dev",
+          "tags": ["browser", "automation", "testing"],
           "relations": [
-            { "to": "Browser Use", "type": "ecosystem" }
-          ]
+            {
+              "target": "Browser Use",
+              "type": "ecosystem"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "RPA & Computer Use",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "stack": {
+              "layer": "browser-automation-runtime"
+            },
+            "performance": {
+              "focus": ["browser-control"]
+            },
+            "decision": {
+              "positioning": "browser-automation-foundation"
+            }
+          }
         }
       ]
     },
@@ -214,32 +471,67 @@
           "id": 62,
           "name": "LangSmith",
           "type": "tool",
-          "layers": ["orchestration", "infra"],
-          "maturity": "adopt",
-          "importance": 80,
           "summary": "Tracing and evaluation platform for LLM applications, tightly integrated with the LangChain ecosystem.",
           "org": "LangChain",
-          "tags": ["observability", "tracing", "evaluation"],
           "url": "https://smith.langchain.com",
+          "tags": ["observability", "tracing", "evaluation"],
           "relations": [
-            { "to": "LangChain", "type": "ecosystem" },
-            { "to": "Langfuse", "type": "alternative" }
-          ]
+            {
+              "target": "LangChain",
+              "type": "ecosystem"
+            },
+            {
+              "target": "Langfuse",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Evaluation & Observability",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "lifecycle": {
+              "stage": "monitoring"
+            },
+            "stack": {
+              "layer": "llm-observability"
+            },
+            "decision": {
+              "positioning": "langchain-native-observability"
+            }
+          }
         },
         {
           "id": 63,
           "name": "Langfuse",
           "type": "tool",
-          "layers": ["orchestration", "infra"],
-          "maturity": "trial",
-          "importance": 71,
           "summary": "Open-source LLM observability platform with tracing, evals and prompt management for production pipelines.",
           "org": "Langfuse",
-          "tags": ["observability", "tracing", "open-source", "evaluation"],
           "url": "https://langfuse.com",
+          "tags": ["observability", "tracing", "open-source", "evaluation"],
           "relations": [
-            { "to": "LangSmith", "type": "alternative" }
-          ]
+            {
+              "target": "LangSmith",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Evaluation & Observability",
+              "maturity": "trial",
+              "importance": 71
+            },
+            "lifecycle": {
+              "stage": "monitoring"
+            },
+            "stack": {
+              "layer": "llm-observability"
+            },
+            "decision": {
+              "positioning": "open-source-observability-stack"
+            }
+          }
         }
       ]
     },
@@ -250,32 +542,71 @@
           "id": 64,
           "name": "Agentic Loop",
           "type": "concept",
-          "layers": ["orchestration"],
-          "maturity": "adopt",
-          "importance": 88,
           "summary": "The plan-act-observe cycle at the core of autonomous agents, enabling iterative task completion without human intervention.",
           "org": null,
-          "tags": ["agent", "pattern", "autonomy"],
           "url": "https://arxiv.org/abs/2309.07864",
+          "tags": ["agent", "pattern", "autonomy"],
           "relations": [
-            { "to": "LangGraph", "type": "depends" },
-            { "to": "Chain-of-Thought", "type": "depends" }
-          ]
+            {
+              "target": "LangGraph",
+              "type": "implemented_by"
+            },
+            {
+              "target": "Chain-of-Thought",
+              "type": "depends"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Orchestration Concept",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "lifecycle": {
+              "stage": "agent-loop"
+            },
+            "stack": {
+              "layer": "agent-pattern"
+            },
+            "decision": {
+              "positioning": "autonomous-agent-core-pattern"
+            }
+          }
         },
         {
           "id": 65,
           "name": "Human-in-the-Loop",
           "type": "concept",
-          "layers": ["orchestration"],
-          "maturity": "adopt",
-          "importance": 82,
           "summary": "Design pattern inserting human approval or correction checkpoints into agent workflows to ensure safety and accuracy.",
           "org": null,
-          "tags": ["safety", "pattern", "agent", "control"],
           "url": "https://arxiv.org/abs/2408.08209",
+          "tags": ["safety", "pattern", "agent", "control"],
           "relations": [
-            { "to": "Agentic Loop", "type": "depends" }
-          ]
+            {
+              "target": "Agentic Loop",
+              "type": "constrains"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Orchestration Concept",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "lifecycle": {
+              "stage": "human-approval"
+            },
+            "security": {
+              "level": "high",
+              "human_oversight": true
+            },
+            "stack": {
+              "layer": "governance-pattern"
+            },
+            "decision": {
+              "positioning": "human-governed-agent-pattern"
+            }
+          }
         }
       ]
     }

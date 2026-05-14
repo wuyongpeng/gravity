@@ -10,111 +10,287 @@
           "id": 25,
           "name": "GPT-4o",
           "type": "model",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 97,
           "summary": "OpenAI's flagship multimodal model, de facto standard for API-based LLM integration.",
           "org": "OpenAI",
-          "tags": ["llm", "multimodal", "api"],
           "url": "https://platform.openai.com/docs/models/gpt-4o",
+          "tags": ["llm", "multimodal", "api"],
           "relations": [
-            { "to": "Claude 3.7 Sonnet", "type": "alternative" },
-            { "to": "Gemini 2.5 Pro", "type": "alternative" }
-          ]
+            {
+              "target": "Claude 3.7 Sonnet",
+              "type": "alternative"
+            },
+            {
+              "target": "Gemini 2.5 Pro",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 97
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "supported": ["text", "image", "audio"]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "performance": {
+              "focus": ["multimodal-inference", "real-time"]
+            },
+            "decision": {
+              "positioning": "general-purpose-api-standard"
+            }
+          }
         },
         {
           "id": 26,
           "name": "o3",
           "type": "model",
-          "layers": ["runtime"],
-          "maturity": "trial",
-          "importance": 90,
           "summary": "OpenAI's reasoning-specialized model using extended thinking at inference time for complex problem solving.",
           "org": "OpenAI",
-          "tags": ["llm", "reasoning", "thinking"],
           "url": "https://platform.openai.com/docs/models/o3",
+          "tags": ["llm", "reasoning", "thinking"],
           "relations": [
-            { "to": "Claude 3.7 Sonnet", "type": "alternative" },
-            { "to": "DeepSeek R1", "type": "alternative" }
-          ]
+            {
+              "target": "Claude 3.7 Sonnet",
+              "type": "alternative"
+            },
+            {
+              "target": "DeepSeek R1",
+              "type": "alternative"
+            },
+            {
+              "target": "Chain-of-Thought",
+              "type": "implements"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "trial",
+              "importance": 90
+            },
+            "deployment": {
+              "type": "cloud-api"
+            },
+            "lifecycle": {
+              "stage": "reasoning"
+            },
+            "stack": {
+              "layer": "reasoning-model"
+            },
+            "performance": {
+              "focus": ["reasoning-depth"]
+            },
+            "modalities": {
+              "supported": ["text"]
+            },
+            "decision": {
+              "positioning": "high-reasoning-model"
+            }
+          }
         },
         {
           "id": 27,
           "name": "Claude 3.7 Sonnet",
           "type": "model",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 95,
           "summary": "Anthropic's leading model with extended thinking mode, strongest in agentic coding and long-context tasks.",
           "org": "Anthropic",
-          "tags": ["llm", "reasoning", "coding", "long-context"],
           "url": "https://anthropic.com/claude",
+          "tags": ["llm", "reasoning", "coding", "long-context"],
           "relations": [
-            { "to": "GPT-4o", "type": "alternative" },
-            { "to": "o3", "type": "alternative" }
-          ]
+            {
+              "target": "GPT-4o",
+              "type": "alternative"
+            },
+            {
+              "target": "o3",
+              "type": "alternative"
+            },
+            {
+              "target": "MCP",
+              "type": "ecosystem"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 95
+            },
+            "deployment": {
+              "type": "cloud-api"
+            },
+            "modalities": {
+              "supported": ["text", "image"]
+            },
+            "performance": {
+              "focus": ["agentic-coding", "long-context"]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "decision": {
+              "positioning": "agentic-coding-leader"
+            }
+          }
         },
         {
           "id": 28,
           "name": "Gemini 2.5 Pro",
           "type": "model",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 92,
           "summary": "Google's frontier model with 1M context window, leading in long-document and multimodal understanding.",
           "org": "Google",
-          "tags": ["llm", "multimodal", "long-context"],
           "url": "https://deepmind.google/models/gemini",
+          "tags": ["llm", "multimodal", "long-context"],
           "relations": [
-            { "to": "GPT-4o", "type": "alternative" }
-          ]
+            {
+              "target": "GPT-4o",
+              "type": "alternative"
+            },
+            {
+              "target": "Context Window",
+              "type": "extends"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 92
+            },
+            "deployment": {
+              "type": "cloud-api"
+            },
+            "modalities": {
+              "supported": ["text", "image", "audio", "video"]
+            },
+            "performance": {
+              "focus": ["long-context", "multimodal"]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "decision": {
+              "positioning": "long-context-leader"
+            }
+          }
         },
         {
           "id": 29,
           "name": "Llama 3",
           "type": "model",
-          "layers": ["runtime", "infra"],
-          "maturity": "adopt",
-          "importance": 88,
           "summary": "Meta's open-weight flagship, the dominant base model for self-hosted and fine-tuned deployments.",
           "org": "Meta",
-          "tags": ["llm", "open-weight", "self-hosted"],
           "url": "https://ai.meta.com/llama",
+          "tags": ["llm", "open-weight", "self-hosted"],
           "relations": [
-            { "to": "Mistral Large", "type": "alternative" },
-            { "to": "DeepSeek R1", "type": "alternative" }
-          ]
+            {
+              "target": "Mistral Large",
+              "type": "alternative"
+            },
+            {
+              "target": "DeepSeek R1",
+              "type": "alternative"
+            },
+            {
+              "target": "Fine-tuning",
+              "type": "supports"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "control_level": "high"
+            },
+            "hardware": {
+              "supports": ["cuda", "rocm", "cpu"]
+            },
+            "modalities": {
+              "supported": ["text"]
+            },
+            "decision": {
+              "positioning": "open-weight-standard"
+            }
+          }
         },
         {
           "id": 30,
           "name": "Mistral Large",
           "type": "model",
-          "layers": ["runtime"],
-          "maturity": "trial",
-          "importance": 76,
           "summary": "Mistral's top-tier model balancing strong performance with efficient inference.",
           "org": "Mistral AI",
-          "tags": ["llm", "efficient", "open-weight"],
           "url": "https://mistral.ai/models",
+          "tags": ["llm", "efficient", "open-weight"],
           "relations": [
-            { "to": "Llama 3", "type": "alternative" }
-          ]
+            {
+              "target": "Llama 3",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "trial",
+              "importance": 76
+            },
+            "performance": {
+              "focus": ["efficient-inference"]
+            },
+            "deployment": {
+              "type": "cloud-api"
+            }
+          }
         },
         {
           "id": 31,
           "name": "DeepSeek R1",
           "type": "model",
-          "layers": ["runtime"],
-          "maturity": "trial",
-          "importance": 85,
           "summary": "Chinese open-weight reasoning model matching frontier performance at a fraction of training cost.",
           "org": "DeepSeek",
-          "tags": ["llm", "reasoning", "open-weight", "efficient"],
           "url": "https://deepseek.com",
+          "tags": ["llm", "reasoning", "open-weight", "efficient"],
           "relations": [
-            { "to": "o3", "type": "alternative" },
-            { "to": "Llama 3", "type": "alternative" }
-          ]
+            {
+              "target": "o3",
+              "type": "alternative"
+            },
+            {
+              "target": "Llama 3",
+              "type": "alternative"
+            },
+            {
+              "target": "Chain-of-Thought",
+              "type": "implements"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "trial",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "performance": {
+              "focus": ["reasoning", "cost-efficiency"]
+            },
+            "decision": {
+              "positioning": "open-reasoning-model"
+            }
+          }
         }
       ]
     },
@@ -125,31 +301,64 @@
           "id": 32,
           "name": "MCP",
           "type": "protocol",
-          "layers": ["runtime"],
-          "maturity": "trial",
-          "importance": 92,
           "summary": "Anthropic's open protocol standardizing how AI models connect to external tools and data sources.",
           "org": "Anthropic",
-          "tags": ["protocol", "tool-use", "standard"],
           "url": "https://modelcontextprotocol.io",
+          "tags": ["protocol", "tool-use", "standard"],
           "relations": [
-            { "to": "A2A", "type": "alternative" }
-          ]
+            {
+              "target": "A2A",
+              "type": "alternative"
+            },
+            {
+              "target": "Function Calling",
+              "type": "extends"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Protocol",
+              "maturity": "trial",
+              "importance": 92
+            },
+            "stack": {
+              "layer": "runtime-protocol"
+            },
+            "lifecycle": {
+              "stage": "tool-execution"
+            },
+            "decision": {
+              "positioning": "tool-use-standard"
+            }
+          }
         },
         {
           "id": 33,
           "name": "A2A",
           "type": "protocol",
-          "layers": ["runtime"],
-          "maturity": "caution",
-          "importance": 75,
           "summary": "Google's Agent-to-Agent protocol enabling standardized communication between autonomous AI agents.",
           "org": "Google",
-          "tags": ["protocol", "multi-agent", "standard"],
           "url": "https://google.github.io/A2A",
+          "tags": ["protocol", "multi-agent", "standard"],
           "relations": [
-            { "to": "MCP", "type": "alternative" }
-          ]
+            {
+              "target": "MCP",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Protocol",
+              "maturity": "caution",
+              "importance": 75
+            },
+            "stack": {
+              "layer": "agent-protocol"
+            },
+            "lifecycle": {
+              "stage": "agent-coordination"
+            }
+          }
         }
       ]
     },
@@ -160,46 +369,88 @@
           "id": 34,
           "name": "Mem0",
           "type": "tool",
-          "layers": ["runtime"],
-          "maturity": "trial",
-          "importance": 74,
           "summary": "Persistent memory layer for AI agents enabling cross-session user preference and context retention.",
           "org": "Mem0",
-          "tags": ["memory", "persistence", "agent"],
           "url": "https://mem0.ai",
+          "tags": ["memory", "persistence", "agent"],
           "relations": [
-            { "to": "Zep", "type": "alternative" }
-          ]
+            {
+              "target": "Zep",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Memory & Context",
+              "maturity": "trial",
+              "importance": 74
+            },
+            "stack": {
+              "layer": "memory-layer"
+            },
+            "lifecycle": {
+              "stage": "context-retrieval"
+            },
+            "decision": {
+              "positioning": "agent-memory-layer"
+            }
+          }
         },
         {
           "id": 35,
           "name": "Zep",
           "type": "tool",
-          "layers": ["runtime"],
-          "maturity": "trial",
-          "importance": 66,
           "summary": "Long-term memory store for LLM apps with built-in temporal reasoning over conversation history.",
           "org": "Zep",
-          "tags": ["memory", "persistence", "conversation"],
           "url": "https://getzep.com",
+          "tags": ["memory", "persistence", "conversation"],
           "relations": [
-            { "to": "Mem0", "type": "alternative" }
-          ]
+            {
+              "target": "Mem0",
+              "type": "alternative"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Memory & Context",
+              "maturity": "trial",
+              "importance": 66
+            },
+            "stack": {
+              "layer": "memory-layer"
+            },
+            "performance": {
+              "focus": ["temporal-reasoning"]
+            }
+          }
         },
         {
           "id": 36,
           "name": "Context Window",
           "type": "concept",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 86,
           "summary": "The finite token budget available to a model per inference call, the primary constraint shaping all long-context architecture decisions.",
           "org": null,
-          "tags": ["memory", "context", "architecture"],
           "url": "https://arxiv.org/abs/2307.03172",
+          "tags": ["memory", "context", "architecture"],
           "relations": [
-            { "to": "RAG", "type": "depends" }
-          ]
+            {
+              "target": "RAG",
+              "type": "constrains"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Memory & Context",
+              "maturity": "adopt",
+              "importance": 86
+            },
+            "stack": {
+              "layer": "runtime-constraint"
+            },
+            "performance": {
+              "focus": ["token-limit", "attention-scaling"]
+            }
+          }
         }
       ]
     },
@@ -210,79 +461,163 @@
           "id": 37,
           "name": "RAG",
           "type": "concept",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 93,
           "summary": "Retrieval-Augmented Generation grounds LLM outputs in external knowledge, dominant pattern for reducing hallucination.",
           "org": null,
-          "tags": ["retrieval", "grounding", "knowledge", "pattern"],
           "url": "https://arxiv.org/abs/2005.11401",
+          "tags": ["retrieval", "grounding", "knowledge", "pattern"],
           "relations": [
-            { "to": "Context Window", "type": "depends" },
-            { "to": "Milvus", "type": "depends" }
-          ]
+            {
+              "target": "Milvus",
+              "type": "depends"
+            },
+            {
+              "target": "Qdrant",
+              "type": "depends"
+            },
+            {
+              "target": "Context Window",
+              "type": "mitigates"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigms",
+              "maturity": "adopt",
+              "importance": 93
+            },
+            "lifecycle": {
+              "stage": "retrieval"
+            },
+            "stack": {
+              "layer": "reasoning-pattern"
+            },
+            "decision": {
+              "positioning": "hallucination-reduction-pattern"
+            }
+          }
         },
         {
           "id": 38,
           "name": "Chain-of-Thought",
           "type": "concept",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 85,
           "summary": "Prompting technique eliciting step-by-step reasoning, foundational to modern agent planning and reasoning models.",
           "org": null,
-          "tags": ["reasoning", "prompting", "planning", "pattern"],
           "url": "https://arxiv.org/abs/2201.11903",
+          "tags": ["reasoning", "prompting", "planning", "pattern"],
           "relations": [
-            { "to": "o3", "type": "depends" },
-            { "to": "DeepSeek R1", "type": "depends" }
-          ]
+            {
+              "target": "o3",
+              "type": "enables"
+            },
+            {
+              "target": "DeepSeek R1",
+              "type": "enables"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigms",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "lifecycle": {
+              "stage": "reasoning"
+            },
+            "stack": {
+              "layer": "reasoning-pattern"
+            }
+          }
         },
         {
           "id": 39,
           "name": "Function Calling",
           "type": "concept",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 88,
           "summary": "Structured mechanism for LLMs to invoke external tools via JSON schema, foundation of all tool-use agents.",
           "org": null,
-          "tags": ["tool-use", "api", "pattern"],
           "url": "https://platform.openai.com/docs/guides/function-calling",
+          "tags": ["tool-use", "api", "pattern"],
           "relations": [
-            { "to": "MCP", "type": "depends" }
-          ]
+            {
+              "target": "MCP",
+              "type": "evolves_to"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigms",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "lifecycle": {
+              "stage": "tool-execution"
+            },
+            "stack": {
+              "layer": "tool-use-pattern"
+            }
+          }
         },
         {
           "id": 40,
           "name": "Prompt Engineering",
           "type": "concept",
-          "layers": ["runtime"],
-          "maturity": "adopt",
-          "importance": 80,
           "summary": "Systematic design of model inputs to reliably elicit desired outputs.",
           "org": null,
-          "tags": ["prompting", "pattern", "human-ai"],
           "url": "https://arxiv.org/abs/2302.11382",
+          "tags": ["prompting", "pattern", "human-ai"],
           "relations": [
-            { "to": "Chain-of-Thought", "type": "depends" }
-          ]
+            {
+              "target": "Chain-of-Thought",
+              "type": "includes"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigms",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "lifecycle": {
+              "stage": "input-construction"
+            },
+            "decision": {
+              "positioning": "human-ai-control-layer"
+            }
+          }
         },
         {
           "id": 41,
           "name": "Fine-tuning",
           "type": "concept",
-          "layers": ["runtime", "infra"],
-          "maturity": "adopt",
-          "importance": 84,
           "summary": "Adapting a pretrained model on domain-specific data to improve task performance.",
           "org": null,
-          "tags": ["training", "adaptation", "pattern"],
           "url": "https://arxiv.org/abs/2106.09685",
+          "tags": ["training", "adaptation", "pattern"],
           "relations": [
-            { "to": "Llama 3", "type": "depends" },
-            { "to": "Unsloth", "type": "depends" }
-          ]
+            {
+              "target": "Llama 3",
+              "type": "applies_to"
+            },
+            {
+              "target": "Unsloth",
+              "type": "accelerated_by"
+            }
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigms",
+              "maturity": "adopt",
+              "importance": 84
+            },
+            "lifecycle": {
+              "stage": "training"
+            },
+            "stack": {
+              "layer": "adaptation-pattern"
+            },
+            "decision": {
+              "positioning": "domain-customization"
+            }
+          }
         }
       ]
     }

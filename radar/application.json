@@ -1,0 +1,283 @@
+{
+  "category": "Application",
+  "subtitle": "Products & Platforms",
+  "description": "End-user products and platforms where AI capability is delivered as tangible value.",
+  "groups": [
+      {
+      "group": "General Assistant",
+      "items": [
+        {
+          "id": 75,
+          "name": "ChatGPT",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 98,
+          "summary": "The product that brought LLMs to mainstream consumers, still the dominant AI assistant by user volume.",
+          "org": "OpenAI",
+          "tags": ["assistant", "consumer", "multimodal"],
+          "url": "https://chatgpt.com",
+          "relations": [
+            { "to": "Claude", "type": "alternative" },
+            { "to": "Gemini", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 76,
+          "name": "Claude",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 92,
+          "summary": "Anthropic's consumer assistant, leading in long-form reasoning, document analysis and coding tasks.",
+          "org": "Anthropic",
+          "tags": ["assistant", "consumer", "reasoning"],
+          "url": "https://claude.ai",
+          "relations": [
+            { "to": "ChatGPT", "type": "alternative" },
+            { "to": "Gemini", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 77,
+          "name": "Gemini",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 88,
+          "summary": "Google's consumer AI assistant deeply integrated with Workspace, strongest in multimodal and real-time search.",
+          "org": "Google",
+          "tags": ["assistant", "consumer", "multimodal"],
+          "url": "https://gemini.google.com",
+          "relations": [
+            { "to": "ChatGPT", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Coding Assistant",
+      "items": [
+        {
+          "id": 78,
+          "name": "Cursor",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 95,
+          "summary": "AI-native code editor that redefined developer workflow, the fastest-growing dev tool in AI era.",
+          "org": "Anysphere",
+          "tags": ["coding", "ide", "agentic"],
+          "url": "https://cursor.com",
+          "relations": [
+            { "to": "Antigravity", "type": "alternative" },
+            { "to": "Windsurf", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 79,
+          "name": "Antigravity",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 88,
+          "summary": "Google's agent-first IDE with multi-agent orchestration, browser/terminal control, and strong enterprise capabilities.",
+          "org": "Google",
+          "tags": ["coding", "ide", "agentic", "multi-agent"],
+          "url": "https://antigravity.google/",
+          "relations": [
+            { "to": "Cursor", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 80,
+          "name": "GitHub Copilot",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 85,
+          "summary": "Mature mainstream coding platform with deep IDE integration, enterprise security, and evolving agentic features.",
+          "org": "Microsoft",
+          "tags": ["coding", "ide", "enterprise"],
+          "url": "https://github.com/features/copilot",
+          "relations": [
+            { "to": "Cursor", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 81,
+          "name": "Claude Code",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "trial",
+          "importance": 82,
+          "summary": "Terminal-native agentic coding tool with strong reasoning for complex tasks.",
+          "org": "Anthropic",
+          "tags": ["coding", "cli", "agentic"],
+          "url": "https://claude.ai/code",
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "Creative Media",
+      "items": [
+        {
+          "id": 82,
+          "name": "Midjourney",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 85,
+          "summary": "Leading AI image generation platform known for aesthetic quality.",
+          "org": "Midjourney",
+          "tags": ["image", "generative", "creative"],
+          "url": "https://midjourney.com",
+          "relations": []
+        },
+        {
+          "id": 83,
+          "name": "Stable Diffusion",
+          "type": "model",
+          "layers": ["application", "infra"],
+          "maturity": "adopt",
+          "importance": 82,
+          "summary": "Open-weight image generation model democratizing visual AI.",
+          "org": "Stability AI",
+          "tags": ["image", "generative", "open-weight"],
+          "url": "https://stability.ai",
+          "relations": []
+        },
+        {
+          "id": 84,
+          "name": "ElevenLabs",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 80,
+          "summary": "Ultra-realistic AI voice synthesis and cloning platform.",
+          "org": "ElevenLabs",
+          "tags": ["voice", "audio", "generative"],
+          "url": "https://elevenlabs.io",
+          "relations": []
+        },
+        {
+          "id": 85,
+          "name": "Synthesia",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 72,
+          "summary": "AI video generation turning scripts into presenter videos.",
+          "org": "Synthesia",
+          "tags": ["video", "generative", "enterprise"],
+          "url": "https://synthesia.io",
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "AI Search & Research",
+      "items": [
+        {
+          "id": 86,
+          "name": "Perplexity",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 88,
+          "summary": "AI-native search engine delivering cited answers in real time, the primary challenger to traditional web search.",
+          "org": "Perplexity AI",
+          "tags": ["search", "research", "retrieval"],
+          "url": "https://perplexity.ai",
+          "relations": [
+            { "to": "ChatGPT", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 87,
+          "name": "NotebookLM",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 80,
+          "summary": "Google's AI research assistant grounded in user-uploaded documents, pioneering source-cited knowledge synthesis.",
+          "org": "Google",
+          "tags": ["research", "documents", "grounding"],
+          "url": "https://notebooklm.google.com",
+          "relations": [
+            { "to": "Perplexity", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Productivity & Knowledge",
+      "items": [
+        {
+          "id": 88,
+          "name": "Notion AI",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 78,
+          "summary": "AI layer embedded in Notion's workspace, enabling document generation and knowledge querying within existing workflows.",
+          "org": "Notion",
+          "tags": ["productivity", "knowledge", "writing"],
+          "url": "https://notion.so/product/ai",
+          "relations": [
+            { "to": "Mem0", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 89,
+          "name": "Glean",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "adopt",
+          "importance": 76,
+          "summary": "Enterprise AI search platform connecting siloed company knowledge sources into a unified queryable interface.",
+          "org": "Glean",
+          "tags": ["enterprise", "search", "knowledge"],
+          "url": "https://glean.com",
+          "relations": [
+            { "to": "Notion AI", "type": "alternative" }
+          ]
+        },
+        {
+          "id": 90,
+          "name": "Rewind",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "assess",
+          "importance": 65,
+          "summary": "Personal AI memory tool that records and indexes everything on your screen for natural language recall.",
+          "org": "Rewind AI",
+          "tags": ["memory", "productivity", "personal"],
+          "url": "https://rewind.ai",
+          "relations": [
+            { "to": "Mem0", "type": "alternative" }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Vertical Apps",
+      "items": [
+        {
+          "id": 91,
+          "name": "Harvey",
+          "type": "tool",
+          "layers": ["application"],
+          "maturity": "trial",
+          "importance": 74,
+          "summary": "AI platform purpose-built for legal workflows, leading the verticalization of LLMs in professional services.",
+          "org": "Harvey",
+          "tags": ["legal", "enterprise", "vertical"],
+          "url": "https://harvey.ai",
+          "relations": []
+        }
+      ]
+    }
+ ]
+}
