@@ -4,15 +4,13 @@
   "description": "The compute, storage and serving layer that makes AI systems run at scale.",
   "perspectives": [
     "radar",
+    "components",
+    "lifecycle",
     "deployment",
-    "modality",
-    "interaction",
-    "business",
-    "reasoning",
-    "memory",
-    "security"
+    "hardware",
+    "abstraction",
+    "performance"
   ],
-  
   "groups": [
     {
       "group": "GPU & Compute",
@@ -25,6 +23,27 @@
           "org": "NVIDIA",
           "url": "https://developer.nvidia.com/cuda-toolkit",
           "tags": ["gpu", "compute", "training", "inference"],
+          "perspectives": {
+            "radar": {
+              "group": "GPU & Compute",
+              "maturity": "adopt",
+              "importance": 98
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "hardware": {
+              "platforms": ["nvidia-gpu"],
+              "preferred": true
+            },
+            "performance": {
+              "focus": ["throughput", "kernel-optimization"],
+              "techniques": ["tensor-core", "cuda-kernel"]
+            },
+            "abstraction": {
+              "level": "hardware-runtime"
+            }
+          },
           "relations": [
             {
               "target": "PyTorch",
@@ -38,28 +57,7 @@
               "target": "ROCm",
               "type": "alternative"
             }
-          ],
-          "perspectives": {
-            "radar": {
-              "group": "GPU & Compute",
-              "maturity": "adopt",
-              "importance": 98
-            },
-            "stack": {
-              "layer": "hardware-runtime"
-            },
-            "deployment": {
-              "type": "self-hosted"
-            },
-            "hardware": {
-              "platforms": ["nvidia-gpu"],
-              "preferred": true
-            },
-            "performance": {
-              "focus": ["throughput", "kernel-optimization"],
-              "techniques": ["tensor-core", "cuda-kernel"]
-            }
-          }
+          ]
         },
         {
           "id": 2,
@@ -69,6 +67,27 @@
           "org": "AMD",
           "url": "https://rocm.docs.amd.com",
           "tags": ["gpu", "compute", "open-source"],
+          "perspectives": {
+            "radar": {
+              "group": "GPU & Compute",
+              "maturity": "trial",
+              "importance": 62
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "hardware": {
+              "platforms": ["amd-gpu"],
+              "preferred": false
+            },
+            "performance": {
+              "focus": ["throughput"],
+              "techniques": ["hip-kernel"]
+            },
+            "abstraction": {
+              "level": "hardware-runtime"
+            }
+          },
           "relations": [
             {
               "target": "CUDA",
@@ -76,28 +95,9 @@
             },
             {
               "target": "PyTorch",
-              "type": "accelerates"
+              "type": "supports"
             }
-          ],
-          "perspectives": {
-            "radar": {
-              "group": "GPU & Compute",
-              "maturity": "trial",
-              "importance": 62
-            },
-            "stack": {
-              "layer": "hardware-runtime"
-            },
-            "deployment": {
-              "type": "self-hosted"
-            },
-            "hardware": {
-              "platforms": ["amd-gpu"]
-            },
-            "performance": {
-              "focus": ["cost-efficiency"]
-            }
-          }
+          ]
         }
       ]
     },
@@ -111,56 +111,40 @@
           "summary": "High-throughput LLM inference engine with PagedAttention, the dominant open-source serving solution.",
           "org": "vLLM Project",
           "url": "https://docs.vllm.ai",
-          "tags": ["serving", "inference", "throughput", "open-source"],
-          "relations": [
-            {
-              "target": "CUDA",
-              "type": "runs_on"
-            },
-            {
-              "target": "PyTorch",
-              "type": "depends"
-            },
-            {
-              "target": "TGI",
-              "type": "alternative"
-            }
-          ],
+          "tags": ["serving", "inference", "throughput"],
           "perspectives": {
             "radar": {
               "group": "Model Serving",
               "maturity": "adopt",
               "importance": 92
             },
-            "lifecycle": {
-              "stage": "inference",
-              "substage": "serving"
-            },
             "deployment": {
-              "type": "self-hosted",
-              "control_level": "high"
+              "type": "self-hosted"
             },
-            "stack": {
-              "layer": "service-runtime"
-            },
-            "hardware": {
-              "preferred": "cuda",
-              "supports": ["cuda", "rocm"]
+            "lifecycle": {
+              "focus": ["continuous-batching", "decoding"]
             },
             "performance": {
-              "focus": ["throughput", "memory"],
-              "techniques": [
-                "continuous-batching",
-                "paged-attention"
-              ]
+              "focus": ["throughput", "memory-efficiency"],
+              "techniques": ["paged-attention", "continuous-batching"]
             },
-            "modalities": {
-              "supported": ["text"]
+            "hardware": {
+              "platforms": ["nvidia-gpu"]
             },
-            "decision": {
-              "positioning": "openai-api-alternative"
+            "abstraction": {
+              "level": "inference-server"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "depends"
+            },
+            {
+              "target": "TGI",
+              "type": "alternative"
+            }
+          ]
         },
         {
           "id": 4,
@@ -170,31 +154,29 @@
           "org": "HuggingFace",
           "url": "https://huggingface.co/docs/text-generation-inference",
           "tags": ["serving", "inference", "quantization"],
-          "relations": [
-            {
-              "target": "vLLM",
-              "type": "alternative"
-            }
-          ],
           "perspectives": {
             "radar": {
               "group": "Model Serving",
               "maturity": "adopt",
               "importance": 78
             },
-            "lifecycle": {
-              "stage": "inference"
-            },
             "deployment": {
               "type": "self-hosted"
             },
-            "stack": {
-              "layer": "service-runtime"
-            },
             "performance": {
-              "focus": ["quantization", "streaming"]
+              "focus": ["latency", "quantization"],
+              "techniques": ["continuous-batching"]
+            },
+            "abstraction": {
+              "level": "inference-server"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "vLLM",
+              "type": "alternative"
+            }
+          ]
         },
         {
           "id": 5,
@@ -203,13 +185,7 @@
           "summary": "Dead-simple local LLM runner that democratized self-hosted model deployment for developers.",
           "org": "Ollama",
           "url": "https://ollama.com",
-          "tags": ["local", "serving", "developer-tool"],
-          "relations": [
-            {
-              "target": "vLLM",
-              "type": "alternative"
-            }
-          ],
+          "tags": ["local", "serving"],
           "perspectives": {
             "radar": {
               "group": "Model Serving",
@@ -217,19 +193,21 @@
               "importance": 85
             },
             "deployment": {
-              "type": "local",
-              "control_level": "high"
-            },
-            "stack": {
-              "layer": "local-runtime"
+              "type": "local"
             },
             "hardware": {
-              "supports": ["cpu", "cuda", "apple-silicon"]
+              "platforms": ["gpu", "cpu"]
             },
-            "decision": {
-              "positioning": "developer-local-runtime"
+            "performance": {
+              "focus": ["ease-of-use"]
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "vLLM",
+              "type": "alternative"
+            }
+          ]
         }
       ]
     },
@@ -243,39 +221,33 @@
           "summary": "The dominant deep learning framework powering most AI research and production training pipelines.",
           "org": "Meta",
           "url": "https://pytorch.org",
-          "tags": ["training", "deep-learning", "open-source"],
-          "relations": [
-            {
-              "target": "CUDA",
-              "type": "runs_on"
-            },
-            {
-              "target": "TensorFlow",
-              "type": "alternative"
-            }
-          ],
+          "tags": ["training", "deep-learning"],
           "perspectives": {
             "radar": {
               "group": "Training & Fine-tuning",
               "maturity": "adopt",
               "importance": 97
             },
-            "lifecycle": {
-              "stage": "training"
-            },
-            "stack": {
-              "layer": "framework"
+            "deployment": {
+              "type": "self-hosted"
             },
             "hardware": {
-              "supports": ["cuda", "rocm", "cpu"]
+              "platforms": ["nvidia-gpu", "cpu"]
             },
             "performance": {
-              "focus": ["distributed-training"]
+              "focus": ["flexibility", "ecosystem"],
+              "techniques": ["torch.compile", "distributed-training"]
             },
-            "decision": {
-              "positioning": "research-standard"
+            "abstraction": {
+              "level": "framework"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "depends"
+            }
+          ]
         },
         {
           "id": 7,
@@ -285,28 +257,22 @@
           "org": "Google",
           "url": "https://www.tensorflow.org",
           "tags": ["training", "deep-learning"],
-          "relations": [
-            {
-              "target": "PyTorch",
-              "type": "alternative"
-            }
-          ],
           "perspectives": {
             "radar": {
               "group": "Training & Fine-tuning",
               "maturity": "hold",
               "importance": 70
             },
-            "lifecycle": {
-              "stage": "training"
-            },
-            "stack": {
-              "layer": "framework"
-            },
-            "hardware": {
-              "supports": ["tpu", "cuda", "cpu"]
+            "abstraction": {
+              "level": "framework"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "PyTorch",
+              "type": "alternative"
+            }
+          ]
         },
         {
           "id": 8,
@@ -316,26 +282,23 @@
           "org": "Unsloth AI",
           "url": "https://unsloth.ai",
           "tags": ["fine-tuning", "lora", "efficiency"],
-          "relations": [
-            {
-              "target": "PyTorch",
-              "type": "extends"
-            }
-          ],
           "perspectives": {
             "radar": {
               "group": "Training & Fine-tuning",
               "maturity": "trial",
               "importance": 72
             },
-            "lifecycle": {
-              "stage": "fine-tuning"
-            },
             "performance": {
-              "focus": ["memory", "speed"],
+              "focus": ["memory-efficiency", "training-speed"],
               "techniques": ["lora-optimization"]
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "PyTorch",
+              "type": "depends"
+            }
+          ]
         }
       ]
     },
@@ -349,86 +312,108 @@
           "summary": "Cloud-native vector database built for billion-scale similarity search in production RAG pipelines.",
           "org": "Zilliz",
           "url": "https://milvus.io",
-          "tags": ["vector-db", "rag", "search", "open-source"],
-          "relations": [
-            {
-              "target": "Qdrant",
-              "type": "alternative"
-            },
-            {
-              "target": "Weaviate",
-              "type": "alternative"
-            }
-          ],
+          "tags": ["vector-db", "rag"],
           "perspectives": {
             "radar": {
               "group": "Vector Database",
               "maturity": "adopt",
               "importance": 82
             },
-            "lifecycle": {
-              "stage": "retrieval"
-            },
-            "stack": {
-              "layer": "storage"
+            "deployment": {
+              "type": "self-hosted"
             },
             "performance": {
-              "focus": ["scalability", "retrieval"]
+              "focus": ["scale", "throughput"]
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "Qdrant",
+              "type": "alternative"
+            }
+          ]
         },
         {
           "id": 10,
           "name": "Qdrant",
           "type": "tool",
-          "summary": "High-performance vector search engine with payload filtering, favored for its Rust-based efficiency.",
+          "summary": "High-performance vector search engine with payload filtering.",
           "org": "Qdrant",
           "url": "https://qdrant.tech",
-          "tags": ["vector-db", "rag", "search", "open-source"],
-          "relations": [
-            {
-              "target": "Milvus",
-              "type": "alternative"
-            }
-          ],
+          "tags": ["vector-db", "rag"],
           "perspectives": {
             "radar": {
               "group": "Vector Database",
               "maturity": "adopt",
               "importance": 78
             },
-            "lifecycle": {
-              "stage": "retrieval"
+            "deployment": {
+              "type": "self-hosted"
             },
             "performance": {
               "focus": ["latency", "filtering"]
             }
-          }
-        },
-        {
-          "id": 11,
-          "name": "Weaviate",
-          "type": "tool",
-          "summary": "Vector database with native multimodal support and built-in ML model integrations.",
-          "org": "Weaviate",
-          "url": "https://weaviate.io",
-          "tags": ["vector-db", "multimodal", "rag"],
+          },
           "relations": [
             {
               "target": "Milvus",
               "type": "alternative"
             }
-          ],
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Gateway & Proxy",
+      "items": [
+        {
+          "id": 14,
+          "name": "LiteLLM",
+          "type": "tool",
+          "summary": "Unified LLM proxy that normalizes 100+ model APIs into a single OpenAI-compatible interface.",
+          "org": "BerriAI",
+          "url": "https://litellm.ai",
+          "tags": ["gateway", "proxy"],
           "perspectives": {
             "radar": {
-              "group": "Vector Database",
-              "maturity": "trial",
-              "importance": 68
+              "group": "Gateway & Proxy",
+              "maturity": "adopt",
+              "importance": 83
             },
-            "modalities": {
-              "supported": ["text", "image"]
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "lifecycle": {
+              "focus": ["routing", "fallback"]
             }
-          }
+          },
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "Cloud Platform",
+      "items": [
+        {
+          "id": 16,
+          "name": "AWS Bedrock",
+          "type": "tool",
+          "summary": "Managed AWS service providing unified API access to frontier models with enterprise security.",
+          "org": "AWS",
+          "url": "https://aws.amazon.com/bedrock",
+          "tags": ["cloud", "managed"],
+          "perspectives": {
+            "radar": {
+              "group": "Cloud Platform",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "cloud",
+              "hosting": "managed"
+            }
+          },
+          "relations": []
         }
       ]
     }

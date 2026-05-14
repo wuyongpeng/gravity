@@ -4,15 +4,14 @@
   "description": "End-user products and platforms where AI capability is delivered as tangible value.",
   "perspectives": [
     "radar",
+    "components",
+    "lifecycle",
     "deployment",
-    "modality",
-    "interaction",
-    "business",
-    "reasoning",
-    "memory",
-    "security"
+    "hardware",
+    "abstraction",
+    "performance",
+    "modalities"
   ],
-
   "groups": [
     {
       "group": "General Assistant",
@@ -21,16 +20,10 @@
           "id": 75,
           "name": "ChatGPT",
           "type": "tool",
-          "summary": "The product that brought LLMs to mainstream consumers, still dominant by user volume.",
+          "summary": "The product that brought LLMs to mainstream consumers, still the dominant AI assistant by user volume.",
           "org": "OpenAI",
           "url": "https://chatgpt.com",
           "tags": ["assistant", "consumer", "multimodal"],
-
-          "relations": [
-            { "target": "Claude", "type": "alternative" },
-            { "target": "Gemini", "type": "alternative" }
-          ],
-
           "perspectives": {
             "radar": {
               "group": "General Assistant",
@@ -38,46 +31,43 @@
               "importance": 98
             },
             "deployment": {
-              "type": "cloud"
+              "type": "cloud",
+              "hosting": "managed-api"
             },
-            "modality": {
-              "input": ["text", "image", "audio"],
-              "output": ["text", "image", "audio"]
+            "modalities": {
+              "input": ["text", "image", "audio", "file"],
+              "output": ["text", "image", "audio", "file"]
             },
-            "interaction": {
-              "mode": ["chat", "voice", "agentic"],
-              "audience": ["consumer", "enterprise"]
+            "lifecycle": {
+              "focus": ["conversation", "tool-calling", "output-generation"]
             },
-            "reasoning": {
-              "capabilities": ["tool-use", "planning", "multi-step"]
+            "performance": {
+              "focus": ["latency", "cost-efficiency"],
+              "techniques": ["model-routing", "caching"]
             },
-            "memory": {
-              "persistent": true
-            },
-            "business": {
-              "model": "subscription+api",
-              "target": ["consumer", "enterprise"]
-            },
-            "security": {
-              "data_control": "managed"
+            "abstraction": {
+              "level": "api"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "Claude",
+              "type": "alternative"
+            },
+            {
+              "target": "Gemini",
+              "type": "alternative"
+            }
+          ]
         },
-
         {
           "id": 76,
           "name": "Claude",
           "type": "tool",
-          "summary": "Anthropic assistant strong in reasoning and long-context tasks.",
+          "summary": "Anthropic's consumer assistant, leading in long-form reasoning, document analysis and coding tasks.",
           "org": "Anthropic",
           "url": "https://claude.ai",
-          "tags": ["assistant", "reasoning"],
-
-          "relations": [
-            { "target": "ChatGPT", "type": "alternative" },
-            { "target": "Gemini", "type": "alternative" }
-          ],
-
+          "tags": ["assistant", "consumer", "reasoning"],
           "perspectives": {
             "radar": {
               "group": "General Assistant",
@@ -85,44 +75,38 @@
               "importance": 92
             },
             "deployment": {
-              "type": "cloud"
+              "type": "cloud",
+              "hosting": "managed-api"
             },
-            "modality": {
+            "modalities": {
               "input": ["text", "document", "image"],
               "output": ["text"]
             },
-            "interaction": {
-              "mode": ["chat", "analysis", "coding"],
-              "audience": ["consumer", "developer"]
+            "lifecycle": {
+              "focus": ["extended-thinking", "analysis", "generation"]
             },
-            "reasoning": {
-              "capabilities": ["extended-thinking", "coding"]
+            "performance": {
+              "focus": ["reasoning-depth"]
             },
-            "memory": {
-              "persistent": false
-            },
-            "business": {
-              "model": "subscription+api"
-            },
-            "security": {
-              "alignment": "constitutional-ai"
+            "abstraction": {
+              "level": "api"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "ChatGPT",
+              "type": "alternative"
+            }
+          ]
         },
-
         {
           "id": 77,
           "name": "Gemini",
           "type": "tool",
-          "summary": "Google assistant with strong multimodal and long-context capabilities.",
+          "summary": "Google's consumer AI assistant deeply integrated with Workspace, strongest in multimodal and real-time search.",
           "org": "Google",
           "url": "https://gemini.google.com",
-          "tags": ["assistant", "multimodal"],
-
-          "relations": [
-            { "target": "ChatGPT", "type": "alternative" }
-          ],
-
+          "tags": ["assistant", "consumer", "multimodal"],
           "perspectives": {
             "radar": {
               "group": "General Assistant",
@@ -130,33 +114,32 @@
               "importance": 88
             },
             "deployment": {
-              "type": "cloud"
+              "type": "cloud",
+              "hosting": "managed-api"
             },
-            "modality": {
+            "modalities": {
               "input": ["text", "image", "audio", "video"],
               "output": ["text", "image"]
             },
-            "interaction": {
-              "mode": ["chat", "search", "workspace"],
-              "audience": ["consumer", "enterprise"]
+            "lifecycle": {
+              "focus": ["search-augmented", "multimodal-reasoning"]
             },
-            "reasoning": {
-              "capabilities": ["multimodal-reasoning", "retrieval"]
+            "performance": {
+              "focus": ["real-time"]
             },
-            "memory": {
-              "persistent": true
-            },
-            "business": {
-              "model": "workspace+subscription"
-            },
-            "security": {
-              "compliance": ["enterprise"]
+            "abstraction": {
+              "level": "api"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "ChatGPT",
+              "type": "alternative"
+            }
+          ]
         }
       ]
     },
-
     {
       "group": "Coding Assistant",
       "items": [
@@ -164,16 +147,10 @@
           "id": 78,
           "name": "Cursor",
           "type": "tool",
-          "summary": "AI-native code editor redefining developer workflows.",
+          "summary": "AI-native code editor that redefined developer workflow, the fastest-growing dev tool in AI era.",
           "org": "Anysphere",
           "url": "https://cursor.com",
           "tags": ["coding", "ide", "agentic"],
-
-          "relations": [
-            { "target": "GitHub Copilot", "type": "alternative" },
-            { "target": "Antigravity", "type": "alternative" }
-          ],
-
           "perspectives": {
             "radar": {
               "group": "Coding Assistant",
@@ -181,50 +158,208 @@
               "importance": 95
             },
             "deployment": {
-              "type": "desktop+cloud"
+              "type": "desktop + cloud"
             },
-            "interaction": {
-              "mode": ["ide", "agentic"],
-              "audience": ["developer"]
+            "modalities": {
+              "input": ["code", "text"],
+              "output": ["code", "text"]
             },
-            "reasoning": {
-              "capabilities": ["repo-understanding", "multi-file-edit"]
+            "lifecycle": {
+              "focus": ["multi-file-editing", "agentic-loop"]
             },
-            "memory": {
-              "persistent": true
+            "performance": {
+              "focus": ["context-speed"]
             },
-            "business": {
-              "model": "subscription"
+            "abstraction": {
+              "level": "ide"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "GitHub Copilot",
+              "type": "alternative"
+            }
+          ]
         },
-
         {
           "id": 79,
           "name": "Antigravity",
           "type": "tool",
-          "summary": "Agent-first IDE with multi-agent execution.",
+          "summary": "Google's agent-first IDE with multi-agent orchestration, browser/terminal control, and strong enterprise capabilities.",
           "org": "Google",
           "url": "https://antigravity.google/",
-          "tags": ["ide", "agentic"],
-
-          "relations": [
-            { "target": "Cursor", "type": "alternative" }
-          ],
-
+          "tags": ["coding", "ide", "agentic", "multi-agent"],
           "perspectives": {
             "radar": {
               "group": "Coding Assistant",
               "maturity": "adopt",
               "importance": 88
             },
-            "interaction": {
-              "mode": ["multi-agent", "computer-use"]
+            "deployment": {
+              "type": "desktop + cloud"
             },
-            "reasoning": {
-              "capabilities": ["agent-loop"]
+            "modalities": {
+              "input": ["code", "text"],
+              "output": ["code"]
+            },
+            "lifecycle": {
+              "focus": ["multi-agent", "computer-use"]
+            },
+            "abstraction": {
+              "level": "ide"
             }
-          }
+          },
+          "relations": [
+            {
+              "target": "Cursor",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "id": 80,
+          "name": "GitHub Copilot",
+          "type": "tool",
+          "summary": "Mature mainstream coding platform with deep IDE integration, enterprise security, and evolving agentic features.",
+          "org": "Microsoft",
+          "url": "https://github.com/features/copilot",
+          "tags": ["coding", "ide", "enterprise"],
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "cloud + ide"
+            },
+            "modalities": {
+              "input": ["code"],
+              "output": ["code"]
+            },
+            "abstraction": {
+              "level": "ide"
+            }
+          },
+          "relations": [
+            {
+              "target": "Cursor",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Creative Media",
+      "items": [
+        {
+          "id": 82,
+          "name": "Midjourney",
+          "type": "tool",
+          "summary": "Leading AI image generation platform known for aesthetic quality.",
+          "org": "Midjourney",
+          "url": "https://midjourney.com",
+          "tags": ["image", "generative", "creative"],
+          "perspectives": {
+            "radar": {
+              "group": "Creative Media",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "cloud"
+            },
+            "modalities": {
+              "input": ["text", "image"],
+              "output": ["image"]
+            }
+          },
+          "relations": []
+        },
+        {
+          "id": 83,
+          "name": "Stable Diffusion",
+          "type": "model",
+          "summary": "Open-weight image generation model democratizing visual AI.",
+          "org": "Stability AI",
+          "url": "https://stability.ai",
+          "tags": ["image", "generative", "open-weight"],
+          "perspectives": {
+            "radar": {
+              "group": "Creative Media",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "deployment": {
+              "type": "self-hosted"
+            },
+            "modalities": {
+              "input": ["text", "image"],
+              "output": ["image"]
+            },
+            "hardware": {
+              "platforms": ["gpu"],
+              "preferred": true
+            }
+          },
+          "relations": []
+        },
+        {
+          "id": 84,
+          "name": "ElevenLabs",
+          "type": "tool",
+          "summary": "Ultra-realistic AI voice synthesis and cloning platform.",
+          "org": "ElevenLabs",
+          "url": "https://elevenlabs.io",
+          "tags": ["voice", "audio", "generative"],
+          "perspectives": {
+            "radar": {
+              "group": "Creative Media",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "deployment": {
+              "type": "cloud"
+            },
+            "modalities": {
+              "input": ["text"],
+              "output": ["audio"]
+            }
+          },
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "AI Search & Research",
+      "items": [
+        {
+          "id": 86,
+          "name": "Perplexity",
+          "type": "tool",
+          "summary": "AI-native search engine delivering cited answers in real time.",
+          "org": "Perplexity AI",
+          "url": "https://perplexity.ai",
+          "tags": ["search", "research", "retrieval"],
+          "perspectives": {
+            "radar": {
+              "group": "AI Search & Research",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "cloud"
+            },
+            "modalities": {
+              "input": ["text"],
+              "output": ["text"]
+            },
+            "lifecycle": {
+              "focus": ["retrieval", "citation"]
+            }
+          },
+          "relations": []
         }
       ]
     }
