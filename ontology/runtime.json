@@ -2,6 +2,17 @@
   "category": "Runtime",
   "subtitle": "Inference Runtime",
   "description": "Core execution environment including models, inference frameworks, quantization, decoding strategies and native capabilities that power model reasoning and execution.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "modality",
+    "interaction",
+    "business",
+    "reasoning",
+    "memory",
+    "security"
+  ],
+  
   "groups": [
     {
       "group": "Frontier Model",

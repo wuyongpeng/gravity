@@ -2,6 +2,17 @@
   "category": "Infra",
   "subtitle": "Infrastructure",
   "description": "The compute, storage and serving layer that makes AI systems run at scale.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "modality",
+    "interaction",
+    "business",
+    "reasoning",
+    "memory",
+    "security"
+  ],
+  
   "groups": [
     {
       "group": "GPU & Compute",

@@ -2,6 +2,17 @@
   "category": "Orchestration",
   "subtitle": "Workflow & Automation",
   "description": "Connecting models, tools and memory into executable task flows that automate real-world processes.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "modality",
+    "interaction",
+    "business",
+    "reasoning",
+    "memory",
+    "security"
+  ],
+  
   "groups": [
     {
       "group": "Workflow Engine",
