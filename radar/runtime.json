@@ -141,7 +141,7 @@
           "name": "A2A",
           "type": "protocol",
           "layers": ["runtime"],
-          "maturity": "caution",
+          "maturity": "hold",
           "importance": 75,
           "summary": "Google's Agent-to-Agent protocol enabling standardized communication between autonomous AI agents.",
           "org": "Google",

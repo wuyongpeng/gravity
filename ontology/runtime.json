@@ -349,7 +349,7 @@
           "perspectives": {
             "radar": {
               "group": "Protocol",
-              "maturity": "caution",
+              "maturity": "hold",
               "importance": 75
             },
             "stack": {
