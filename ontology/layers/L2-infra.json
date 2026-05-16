@@ -1,0 +1,1169 @@
+{
+  "category": "Infra",
+  "subtitle": "Infrastructure",
+  "description": "The compute, storage and serving layer that makes AI systems run at scale.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "hardware",
+    "lifecycle",
+    "performance",
+    "cost",
+    "security",
+    "openness",
+    "abstraction",
+    "stack",
+    "decision"
+  ],
+  "group_types": [
+    "GPU Platform",
+    "Model Serving",
+    "Training & Fine-tuning",
+    "Vector Database",
+    "State & Memory",
+    "Gateway & Proxy",
+    "Distributed Computing"
+  ],
+  "groups": [
+    {
+      "group": "GPU Platform",
+      "items": [
+        {
+          "uuid": "b1",
+          "name": "CUDA",
+          "type": "framework",
+          "summary": "NVIDIA's parallel computing platform, the de facto standard for AI model training and inference.",
+          "org": "NVIDIA",
+          "url": "https://developer.nvidia.com/cuda-toolkit",
+          "tags": [
+            "gpu",
+            "compute",
+            "training",
+            "inference"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "GPU Platform",
+              "maturity": "adopt",
+              "importance": 98
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "hardware": {
+              "platforms": [
+                "nvidia-gpu"
+              ],
+              "preferred": true
+            },
+            "performance": {
+              "focus": [
+                "throughput",
+                "kernel-optimization"
+              ],
+              "techniques": [
+                "tensor-core",
+                "cuda-kernel"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free SDK; cost is NVIDIA GPU hardware"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "abstraction": {
+              "level": "hardware-runtime"
+            },
+            "stack": {
+              "layer": "gpu-compute-runtime"
+            },
+            "decision": {
+              "positioning": "gpu-compute-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "PyTorch",
+              "type": "accelerates"
+            },
+            {
+              "target": "vLLM",
+              "type": "runs_under"
+            },
+            {
+              "target": "ROCm",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b2",
+          "name": "ROCm",
+          "type": "framework",
+          "summary": "AMD's open-source GPU compute platform, emerging alternative to CUDA for AI workloads.",
+          "org": "AMD",
+          "url": "https://rocm.docs.amd.com",
+          "tags": [
+            "gpu",
+            "compute",
+            "open-source"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "GPU Platform",
+              "maturity": "trial",
+              "importance": 62
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "hardware": {
+              "platforms": [
+                "amd-gpu"
+              ],
+              "preferred": false
+            },
+            "performance": {
+              "focus": [
+                "throughput"
+              ],
+              "techniques": [
+                "hip-kernel"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source; cost is AMD GPU hardware (cheaper than NVIDIA)"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "abstraction": {
+              "level": "hardware-runtime"
+            },
+            "stack": {
+              "layer": "gpu-compute-runtime"
+            },
+            "decision": {
+              "positioning": "open-gpu-alternative"
+            }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "alternative"
+            },
+            {
+              "target": "PyTorch",
+              "type": "supports"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Model Serving",
+      "items": [
+        {
+          "uuid": "b3",
+          "name": "vLLM",
+          "type": "framework",
+          "summary": "High-throughput LLM inference engine with PagedAttention, the dominant open-source serving solution.",
+          "org": "vLLM Project",
+          "url": "https://docs.vllm.ai",
+          "tags": [
+            "serving",
+            "inference",
+            "throughput"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Model Serving",
+              "maturity": "adopt",
+              "importance": 92
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "continuous-batching",
+                "decoding"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "throughput",
+                "memory-efficiency"
+              ],
+              "techniques": [
+                "paged-attention",
+                "continuous-batching"
+              ]
+            },
+            "hardware": {
+              "platforms": [
+                "nvidia-gpu"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source; cost is GPU infrastructure only"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "abstraction": {
+              "level": "inference-server"
+            },
+            "stack": {
+              "layer": "inference-server"
+            },
+            "decision": {
+              "positioning": "high-throughput-serving"
+            }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "depends"
+            },
+            {
+              "target": "TGI",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b4",
+          "name": "TGI",
+          "type": "framework",
+          "summary": "HuggingFace's production-grade LLM serving toolkit with built-in quantization and streaming support.",
+          "org": "HuggingFace",
+          "url": "https://huggingface.co/docs/text-generation-inference",
+          "tags": [
+            "serving",
+            "inference",
+            "quantization"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Model Serving",
+              "maturity": "adopt",
+              "importance": 78
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "latency",
+                "quantization"
+              ],
+              "techniques": [
+                "continuous-batching"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source; HuggingFace Inference Endpoints available as managed option"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "abstraction": {
+              "level": "inference-server"
+            },
+            "stack": {
+              "layer": "inference-server"
+            },
+            "decision": {
+              "positioning": "huggingface-native-serving"
+            }
+          },
+          "relations": [
+            {
+              "target": "vLLM",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b5",
+          "name": "Ollama",
+          "type": "tool",
+          "summary": "Dead-simple local LLM runner that democratized self-hosted model deployment for developers.",
+          "org": "Ollama",
+          "url": "https://ollama.com",
+          "tags": [
+            "local",
+            "serving"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Model Serving",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "hardware": {
+              "platforms": [
+                "gpu",
+                "cpu"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "ease-of-use"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Completely free; runs on consumer hardware"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "local-inference-runtime"
+            },
+            "decision": {
+              "positioning": "local-dev-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "vLLM",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Training & Fine-tuning",
+      "items": [
+        {
+          "uuid": "b6",
+          "name": "PyTorch",
+          "type": "framework",
+          "summary": "The dominant deep learning framework powering most AI research and production training pipelines.",
+          "org": "Meta",
+          "url": "https://pytorch.org",
+          "tags": [
+            "training",
+            "deep-learning"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Training & Fine-tuning",
+              "maturity": "adopt",
+              "importance": 97
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "hardware": {
+              "platforms": [
+                "nvidia-gpu",
+                "cpu"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "flexibility",
+                "ecosystem"
+              ],
+              "techniques": [
+                "torch.compile",
+                "distributed-training"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source; cost is compute infrastructure"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "bsd-3-clause",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "abstraction": {
+              "level": "framework"
+            },
+            "stack": {
+              "layer": "training-framework"
+            },
+            "decision": {
+              "positioning": "training-framework-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "depends"
+            }
+          ]
+        },
+        {
+          "uuid": "b7",
+          "name": "TensorFlow",
+          "type": "framework",
+          "summary": "Google's deep learning framework, largely displaced by PyTorch in research but still active in production.",
+          "org": "Google",
+          "url": "https://www.tensorflow.org",
+          "tags": [
+            "training",
+            "deep-learning"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Training & Fine-tuning",
+              "maturity": "assess",
+              "importance": 70
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source; cost is compute infrastructure"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "abstraction": {
+              "level": "framework"
+            },
+            "stack": {
+              "layer": "training-framework"
+            },
+            "decision": {
+              "positioning": "legacy-training-framework"
+            }
+          },
+          "relations": [
+            {
+              "target": "PyTorch",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b8",
+          "name": "Unsloth",
+          "type": "tool",
+          "summary": "Fine-tuning accelerator that reduces VRAM usage and speeds up LoRA training by 2-5x.",
+          "org": "Unsloth AI",
+          "url": "https://unsloth.ai",
+          "tags": [
+            "fine-tuning",
+            "lora",
+            "efficiency"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Training & Fine-tuning",
+              "maturity": "trial",
+              "importance": 72
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "memory-efficiency",
+                "training-speed"
+              ],
+              "techniques": [
+                "lora-optimization"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source community version free; Pro version for larger models"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "fine-tuning-accelerator"
+            },
+            "decision": {
+              "positioning": "efficient-finetuning"
+            }
+          },
+          "relations": [
+            {
+              "target": "PyTorch",
+              "type": "depends"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Vector Database",
+      "items": [
+        {
+          "uuid": "b9",
+          "name": "Milvus",
+          "type": "tool",
+          "summary": "Cloud-native vector database built for billion-scale similarity search in production RAG pipelines.",
+          "org": "Zilliz",
+          "url": "https://milvus.io",
+          "tags": [
+            "vector-db",
+            "rag"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Vector Database",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "scale",
+                "throughput"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; Zilliz Cloud managed service available"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "SOC2"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "vector-store"
+            },
+            "decision": {
+              "positioning": "billion-scale-vector-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Qdrant",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b10",
+          "name": "Qdrant",
+          "type": "tool",
+          "summary": "High-performance vector search engine with payload filtering.",
+          "org": "Qdrant",
+          "url": "https://qdrant.tech",
+          "tags": [
+            "vector-db",
+            "rag"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Vector Database",
+              "maturity": "adopt",
+              "importance": 78
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "latency",
+                "filtering"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; Qdrant Cloud managed service available"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "vector-store"
+            },
+            "decision": {
+              "positioning": "low-latency-vector-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Milvus",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b11",
+          "name": "Weaviate",
+          "type": "tool",
+          "summary": "Vector database with built-in vectorization and hybrid search combining vector and keyword search.",
+          "org": "Weaviate",
+          "url": "https://weaviate.io",
+          "tags": [
+            "vector-db",
+            "rag",
+            "hybrid-search"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Vector Database",
+              "maturity": "adopt",
+              "importance": 75
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "hybrid-search",
+                "built-in-vectorization"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; Weaviate Cloud managed service available"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "SOC2"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "bsd-3-clause",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "vector-store"
+            },
+            "decision": {
+              "positioning": "hybrid-search-vector-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Milvus",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b12",
+          "name": "Chroma",
+          "type": "tool",
+          "summary": "Lightweight embedding database designed for AI applications with minimal setup.",
+          "org": "Chroma",
+          "url": "https://www.trychroma.com",
+          "tags": [
+            "vector-db",
+            "rag",
+            "lightweight"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Vector Database",
+              "maturity": "trial",
+              "importance": 70
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "ease-of-use",
+                "developer-experience"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Fully open-source; very lightweight for prototyping"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "vector-store"
+            },
+            "decision": {
+              "positioning": "lightweight-prototyping-vector-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Milvus",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b13",
+          "name": "Pinecone",
+          "type": "tool",
+          "summary": "Managed vector database for production RAG systems with serverless scaling.",
+          "org": "Pinecone",
+          "url": "https://www.pinecone.io",
+          "tags": [
+            "vector-db",
+            "rag",
+            "managed"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Vector Database",
+              "maturity": "adopt",
+              "importance": 76
+            },
+            "deployment": {
+              "type": "managed-cloud",
+              "hosting": "managed",
+              "control_level": "low"
+            },
+            "performance": {
+              "focus": [
+                "serverless-scaling",
+                "low-latency"
+              ]
+            },
+            "cost": {
+              "model": "pay-per-use",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Free tier available; paid plans from $70/month; serverless pricing"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "GDPR"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "managed-vector-store"
+            },
+            "decision": {
+              "positioning": "managed-production-vector-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Milvus",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "State & Memory",
+      "items": [
+        {
+          "uuid": "b14",
+          "name": "Mem0",
+          "type": "tool",
+          "summary": "Persistent memory layer for AI agents enabling cross-session user preference and context retention.",
+          "org": "Mem0",
+          "url": "https://mem0.ai",
+          "tags": [
+            "memory",
+            "persistence",
+            "agent",
+            "state"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "State & Memory",
+              "maturity": "trial",
+              "importance": 74
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "memory-store"
+            },
+            "lifecycle": {
+              "stage": "state-persistence",
+              "focus": [
+                "cross-session-memory",
+                "user-preference"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "retrieval-accuracy",
+                "latency"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "low",
+              "note": "Open-source self-hosted free; cloud managed plan available"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "agent-memory-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Zep",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "b15",
+          "name": "Zep",
+          "type": "tool",
+          "summary": "Long-term memory store for LLM apps with built-in temporal reasoning over conversation history.",
+          "org": "Zep",
+          "url": "https://getzep.com",
+          "tags": [
+            "memory",
+            "persistence",
+            "conversation",
+            "state"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "State & Memory",
+              "maturity": "trial",
+              "importance": 66
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "memory-store"
+            },
+            "lifecycle": {
+              "stage": "state-persistence",
+              "focus": [
+                "conversation-history",
+                "temporal-reasoning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "temporal-reasoning"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "low",
+              "note": "Open-source community edition; Zep Cloud for managed service"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "temporal-memory-store"
+            }
+          },
+          "relations": [
+            {
+              "target": "Mem0",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Gateway & Proxy",
+      "items": [
+        {
+          "uuid": "b16",
+          "name": "LiteLLM",
+          "type": "tool",
+          "summary": "Unified LLM proxy that normalizes 100+ model APIs into a single OpenAI-compatible interface.",
+          "org": "BerriAI",
+          "url": "https://litellm.ai",
+          "tags": [
+            "gateway",
+            "proxy"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Gateway & Proxy",
+              "maturity": "adopt",
+              "importance": 83
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "lifecycle": {
+              "stage": "tool-execution",
+              "focus": [
+                "routing",
+                "fallback"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; LiteLLM Enterprise for advanced features"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low",
+              "note": "Acts as proxy; all traffic passes through; audit logging available"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "api-gateway"
+            },
+            "decision": {
+              "positioning": "unified-llm-gateway"
+            }
+          },
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "Distributed Computing",
+      "items": [
+        {
+          "uuid": "b17",
+          "name": "Ray",
+          "type": "framework",
+          "summary": "Distributed computing framework for AI workloads with unified API for training, serving and data processing.",
+          "org": "Anyscale",
+          "url": "https://www.ray.io",
+          "tags": [
+            "distributed",
+            "training",
+            "serving",
+            "scaling"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Distributed Computing",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "lifecycle": {
+              "stage": "distributed-execution",
+              "focus": [
+                "distributed-training",
+                "parallel-inference"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "distributed-scaling",
+                "resource-efficiency"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source free; Anyscale managed platform available"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "distributed-ai-runtime"
+            },
+            "decision": {
+              "positioning": "unified-distributed-ai-framework"
+            }
+          },
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

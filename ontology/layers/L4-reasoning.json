@@ -1,0 +1,472 @@
+{
+  "category": "Reasoning",
+  "subtitle": "Reasoning Paradigms",
+  "description": "The cognitive logic layer that defines how to transform raw intelligence from models into problem-solving capabilities. These paradigms represent fundamental thinking patterns and constraints that bridge the gap between model capabilities and real-world applications.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "lifecycle",
+    "performance",
+    "cost",
+    "security",
+    "openness",
+    "stack",
+    "decision"
+  ],
+  "group_types": [
+    "Knowledge & Retrieval",
+    "Reasoning Paradigm",
+    "Tool Use",
+    "Model Adaptation",
+    "Context Constraint"
+  ],
+  "groups": [
+    {
+      "group": "Knowledge & Retrieval",
+      "items": [
+        {
+          "uuid": "d1",
+          "name": "RAG",
+          "type": "concept",
+          "summary": "Retrieval-Augmented Generation grounds LLM outputs in external knowledge, dominant pattern for reducing hallucination.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2005.11401",
+          "tags": [
+            "retrieval",
+            "grounding",
+            "knowledge",
+            "pattern"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Knowledge & Retrieval",
+              "maturity": "adopt",
+              "importance": 93
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "lifecycle": {
+              "stage": "retrieval",
+              "focus": [
+                "knowledge-grounding",
+                "hallucination-reduction"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "retrieval-accuracy",
+                "latency"
+              ]
+            },
+            "cost": {
+              "model": "infrastructure",
+              "tier": "variable",
+              "relative": "medium",
+              "note": "Cost depends on vector DB + embedding model; adds latency overhead"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "depends-on-vector-db"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "reasoning-pattern"
+            },
+            "decision": {
+              "positioning": "hallucination-reduction-pattern"
+            }
+          },
+          "relations": [
+            {
+              "target": "Milvus",
+              "type": "depends"
+            },
+            {
+              "target": "Qdrant",
+              "type": "depends"
+            },
+            {
+              "target": "Context Window",
+              "type": "mitigates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Reasoning Paradigm",
+      "items": [
+        {
+          "uuid": "d2",
+          "name": "Chain-of-Thought",
+          "type": "concept",
+          "summary": "Prompting technique eliciting step-by-step reasoning, foundational to modern agent planning and reasoning models.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2201.11903",
+          "tags": [
+            "reasoning",
+            "prompting",
+            "planning",
+            "pattern"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigm",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "step-by-step-thinking",
+                "planning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "reasoning-depth"
+              ]
+            },
+            "cost": {
+              "model": "token-overhead",
+              "tier": "variable",
+              "relative": "medium",
+              "note": "Increases token usage 2-5x; higher cost but better accuracy"
+            },
+            "security": {
+              "data_residency": "depends-on-model",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "reasoning-pattern"
+            },
+            "decision": {
+              "positioning": "step-by-step-reasoning-pattern"
+            }
+          },
+          "relations": [
+            {
+              "target": "o3",
+              "type": "enables"
+            },
+            {
+              "target": "DeepSeek R1",
+              "type": "enables"
+            }
+          ]
+        },
+        {
+          "uuid": "d3",
+          "name": "Prompt Engineering",
+          "type": "concept",
+          "summary": "Systematic design of model inputs to reliably elicit desired outputs.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2302.11382",
+          "tags": [
+            "prompting",
+            "pattern",
+            "human-ai"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Reasoning Paradigm",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "lifecycle": {
+              "stage": "input-construction",
+              "focus": [
+                "prompt-design",
+                "output-control"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "output-quality"
+              ]
+            },
+            "cost": {
+              "model": "human-effort",
+              "tier": "free",
+              "relative": "low",
+              "note": "No direct cost; requires engineering time investment"
+            },
+            "security": {
+              "data_residency": "depends-on-model",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "reasoning-pattern"
+            },
+            "decision": {
+              "positioning": "human-ai-control-layer"
+            }
+          },
+          "relations": [
+            {
+              "target": "Chain-of-Thought",
+              "type": "includes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Tool Use",
+      "items": [
+        {
+          "uuid": "d4",
+          "name": "Function Calling",
+          "type": "concept",
+          "summary": "Structured mechanism for LLMs to invoke external tools via JSON schema, foundation of all tool-use agents.",
+          "org": null,
+          "url": "https://platform.openai.com/docs/guides/function-calling",
+          "tags": [
+            "tool-use",
+            "api",
+            "pattern"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Tool Use",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "lifecycle": {
+              "stage": "tool-execution",
+              "focus": [
+                "json-schema-invocation",
+                "external-api"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "tool-invocation-latency"
+              ]
+            },
+            "cost": {
+              "model": "token-overhead",
+              "tier": "variable",
+              "relative": "low",
+              "note": "Minimal token overhead for schema definition; tool execution cost varies"
+            },
+            "security": {
+              "data_residency": "depends-on-model",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "Tool execution can have side effects; requires careful permission scoping"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "tool-use-pattern"
+            },
+            "decision": {
+              "positioning": "tool-invocation-pattern"
+            }
+          },
+          "relations": [
+            {
+              "target": "MCP",
+              "type": "evolves_to"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Model Adaptation",
+      "items": [
+        {
+          "uuid": "d5",
+          "name": "Fine-tuning",
+          "type": "concept",
+          "summary": "Adapting a pretrained model on domain-specific data to improve task performance.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2106.09685",
+          "tags": [
+            "training",
+            "adaptation",
+            "pattern"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Model Adaptation",
+              "maturity": "adopt",
+              "importance": 84
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "lifecycle": {
+              "stage": "training",
+              "focus": [
+                "domain-adaptation",
+                "parameter-update"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "training-speed",
+                "domain-accuracy"
+              ]
+            },
+            "cost": {
+              "model": "compute-intensive",
+              "tier": "variable",
+              "relative": "high",
+              "note": "GPU hours required; LoRA reduces cost significantly vs full fine-tuning"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "depends-on-base-model-license"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "depends-on-base-model",
+              "source": "open"
+            },
+            "stack": {
+              "layer": "adaptation-pattern"
+            },
+            "decision": {
+              "positioning": "domain-customization"
+            }
+          },
+          "relations": [
+            {
+              "target": "Llama 3",
+              "type": "applies_to"
+            },
+            {
+              "target": "Unsloth",
+              "type": "accelerated_by"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Context Constraint",
+      "items": [
+        {
+          "uuid": "d6",
+          "name": "Context Window",
+          "type": "concept",
+          "summary": "The finite token budget available to a model per inference call, the primary constraint shaping all reasoning paradigm decisions including RAG, memory architecture, and prompt engineering strategies.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2307.03172",
+          "tags": [
+            "constraint",
+            "context",
+            "architecture",
+            "token-limit"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Context Constraint",
+              "maturity": "adopt",
+              "importance": 86
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "stack": {
+              "layer": "reasoning-constraint"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "token-budget",
+                "context-management"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "token-limit",
+                "attention-scaling"
+              ]
+            },
+            "cost": {
+              "model": "token-based",
+              "tier": "variable",
+              "relative": "high",
+              "note": "Larger context = higher cost; 1M token context can cost $1-10 per call"
+            },
+            "security": {
+              "data_residency": "depends-on-model",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "All data in context window is sent to model provider"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "fundamental-reasoning-constraint"
+            }
+          },
+          "relations": [
+            {
+              "target": "RAG",
+              "type": "constrains"
+            },
+            {
+              "target": "Prompt Engineering",
+              "type": "constrains"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

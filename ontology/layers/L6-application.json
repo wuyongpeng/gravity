@@ -1,0 +1,1080 @@
+{
+  "category": "Application",
+  "subtitle": "Products & Platforms",
+  "description": "End-user products and platforms where AI capability is delivered as tangible value.",
+  "perspectives": [
+    "radar",
+    "components",
+    "lifecycle",
+    "deployment",
+    "hardware",
+    "abstraction",
+    "performance",
+    "modalities",
+    "cost",
+    "security",
+    "openness",
+    "stack"
+  ],
+  "group_types": [
+    "General Assistant",
+    "Coding Assistant",
+    "Creative Media",
+    "AI Search & Research",
+    "Edge AI Device"
+  ],
+  "groups": [
+    {
+      "group": "General Assistant",
+      "items": [
+        {
+          "uuid": "f1",
+          "name": "ChatGPT",
+          "type": "tool",
+          "summary": "The product that brought LLMs to mainstream consumers, still the dominant AI assistant by user volume.",
+          "org": "OpenAI",
+          "url": "https://chatgpt.com",
+          "tags": [
+            "assistant",
+            "consumer",
+            "multimodal"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "General Assistant",
+              "maturity": "adopt",
+              "importance": 98
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "text",
+                "image",
+                "audio",
+                "file"
+              ],
+              "output": [
+                "text",
+                "image",
+                "audio",
+                "file"
+              ]
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "conversation",
+                "tool-calling",
+                "output-generation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "latency",
+                "cost-efficiency"
+              ],
+              "techniques": [
+                "model-routing",
+                "caching"
+              ]
+            },
+            "abstraction": {
+              "level": "api"
+            },
+            "stack": {
+              "layer": "consumer-ai-product"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free tier available; ChatGPT Plus $20/month; Team $25/user/month; Enterprise custom"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "GDPR",
+                "HIPAA"
+              ],
+              "risk_level": "medium",
+              "note": "Conversations may be used for training unless opted out; Enterprise has stronger data controls"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "consumer-ai-product-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "Claude",
+              "type": "alternative"
+            },
+            {
+              "target": "Gemini",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "f2",
+          "name": "Claude",
+          "type": "tool",
+          "summary": "Anthropic's consumer assistant, leading in long-form reasoning, document analysis and coding tasks.",
+          "org": "Anthropic",
+          "url": "https://claude.ai",
+          "tags": [
+            "assistant",
+            "consumer",
+            "reasoning"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "General Assistant",
+              "maturity": "adopt",
+              "importance": 92
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "text",
+                "document",
+                "image"
+              ],
+              "output": [
+                "text"
+              ]
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "extended-thinking",
+                "analysis",
+                "generation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "reasoning-depth"
+              ]
+            },
+            "abstraction": {
+              "level": "api"
+            },
+            "stack": {
+              "layer": "consumer-ai-product"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free tier available; Claude Pro $20/month; Team $25/user/month"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "GDPR",
+                "HIPAA"
+              ],
+              "risk_level": "medium",
+              "note": "Strong Constitutional AI safety focus; Enterprise tier with data isolation"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "reasoning-assistant-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "ChatGPT",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "f3",
+          "name": "Gemini",
+          "type": "tool",
+          "summary": "Google's consumer AI assistant deeply integrated with Workspace, strongest in multimodal and real-time search.",
+          "org": "Google",
+          "url": "https://gemini.google.com",
+          "tags": [
+            "assistant",
+            "consumer",
+            "multimodal"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "General Assistant",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "text",
+                "image",
+                "audio",
+                "video"
+              ],
+              "output": [
+                "text",
+                "image"
+              ]
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "search-augmented",
+                "multimodal-reasoning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "real-time"
+              ]
+            },
+            "abstraction": {
+              "level": "api"
+            },
+            "stack": {
+              "layer": "consumer-ai-product"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free tier available; Gemini Advanced $19.99/month (Google One AI Premium)"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "GDPR",
+                "ISO27001"
+              ],
+              "risk_level": "medium",
+              "note": "Google Workspace integration; Workspace data not used for training by default"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "multimodal-search-assistant"
+            }
+          },
+          "relations": [
+            {
+              "target": "ChatGPT",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Coding Assistant",
+      "items": [
+        {
+          "uuid": "f4",
+          "name": "Cursor",
+          "type": "tool",
+          "summary": "AI-native code editor that redefined developer workflow, the fastest-growing dev tool in AI era.",
+          "org": "Anysphere",
+          "url": "https://cursor.com",
+          "tags": [
+            "coding",
+            "ide",
+            "agentic"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "maturity": "adopt",
+              "importance": 95
+            },
+            "deployment": {
+              "type": "desktop-cloud",
+              "hosting": "managed-api",
+              "control_level": "medium"
+            },
+            "modalities": {
+              "input": [
+                "code",
+                "text"
+              ],
+              "output": [
+                "code",
+                "text"
+              ]
+            },
+            "lifecycle": {
+              "stage": "agent-loop",
+              "focus": [
+                "multi-file-editing",
+                "agentic-loop"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "context-speed"
+              ]
+            },
+            "abstraction": {
+              "level": "ide"
+            },
+            "stack": {
+              "layer": "ai-developer-tool"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Free tier (2000 completions); Pro $20/month; Business $40/user/month"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2"
+              ],
+              "risk_level": "medium",
+              "note": "Code sent to Cursor servers for AI processing; Privacy Mode available to disable storage"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "agentic-ide-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "GitHub Copilot",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "f5",
+          "name": "Antigravity",
+          "type": "tool",
+          "summary": "Google's agent-first IDE with multi-agent orchestration, browser/terminal control, and strong enterprise capabilities.",
+          "org": "Google",
+          "url": "https://antigravity.google/",
+          "tags": [
+            "coding",
+            "ide",
+            "agentic",
+            "multi-agent"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "desktop-cloud",
+              "hosting": "managed-api",
+              "control_level": "medium"
+            },
+            "modalities": {
+              "input": [
+                "code",
+                "text"
+              ],
+              "output": [
+                "code"
+              ]
+            },
+            "lifecycle": {
+              "stage": "agent-coordination",
+              "focus": [
+                "multi-agent",
+                "computer-use"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "context-speed",
+                "agent-communication-latency"
+              ]
+            },
+            "abstraction": {
+              "level": "ide"
+            },
+            "stack": {
+              "layer": "ai-developer-tool"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Free tier available; paid plans for advanced agent features"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "ISO27001"
+              ],
+              "risk_level": "medium",
+              "note": "Google enterprise-grade security; strong data isolation for enterprise customers"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "multi-agent-ide"
+            }
+          },
+          "relations": [
+            {
+              "target": "Cursor",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "f6",
+          "name": "GitHub Copilot",
+          "type": "tool",
+          "summary": "Mature mainstream coding platform with deep IDE integration, enterprise security, and evolving agentic features.",
+          "org": "Microsoft",
+          "url": "https://github.com/features/copilot",
+          "tags": [
+            "coding",
+            "ide",
+            "enterprise"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Coding Assistant",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "cloud-ide",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "code"
+              ],
+              "output": [
+                "code"
+              ]
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "code-completion",
+                "inline-suggestion"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "latency",
+                "code-completion-speed"
+              ]
+            },
+            "abstraction": {
+              "level": "ide"
+            },
+            "stack": {
+              "layer": "ai-developer-tool"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Free for verified students/OSS; Individual $10/month; Business $19/user/month; Enterprise $39/user/month"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "GDPR",
+                "ISO27001",
+                "FedRAMP"
+              ],
+              "risk_level": "low",
+              "note": "Enterprise: code not used for training; private model option; strong compliance posture"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "enterprise-coding-platform"
+            }
+          },
+          "relations": [
+            {
+              "target": "Cursor",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Creative Media",
+      "items": [
+        {
+          "uuid": "f7",
+          "name": "Midjourney",
+          "type": "tool",
+          "summary": "Leading AI image generation platform known for aesthetic quality.",
+          "org": "Midjourney",
+          "url": "https://midjourney.com",
+          "tags": [
+            "image",
+            "generative",
+            "creative"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Creative Media",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "text",
+                "image"
+              ],
+              "output": [
+                "image"
+              ]
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "image-generation",
+                "aesthetic-quality"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "image-quality",
+                "generation-speed"
+              ]
+            },
+            "stack": {
+              "layer": "creative-ai-platform"
+            },
+            "cost": {
+              "model": "subscription",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Basic $10/month (200 images); Standard $30/month; Pro $60/month; Mega $120/month"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "All generated images public by default on lower tiers; Stealth mode on Pro+"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "ai-image-generation-leader"
+            }
+          },
+          "relations": []
+        },
+        {
+          "uuid": "f8",
+          "name": "Stable Diffusion",
+          "type": "model",
+          "summary": "Open-weight image generation model democratizing visual AI.",
+          "org": "Stability AI",
+          "url": "https://stability.ai",
+          "tags": [
+            "image",
+            "generative",
+            "open-weight"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Creative Media",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "modalities": {
+              "input": [
+                "text",
+                "image"
+              ],
+              "output": [
+                "image"
+              ]
+            },
+            "hardware": {
+              "platforms": [
+                "gpu"
+              ],
+              "preferred": true
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "image-generation",
+                "open-weight-inference"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "image-quality",
+                "memory-efficiency"
+              ]
+            },
+            "stack": {
+              "layer": "open-weight-generative-model"
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open weights free to download; cost is GPU compute for inference"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low",
+              "note": "Self-hosted; full data control; no external data transmission"
+            },
+            "openness": {
+              "license": "creativeml-openrail-m",
+              "weights": "open",
+              "source": "partial"
+            },
+            "decision": {
+              "positioning": "open-weight-image-model"
+            }
+          },
+          "relations": []
+        },
+        {
+          "uuid": "f9",
+          "name": "ElevenLabs",
+          "type": "tool",
+          "summary": "Ultra-realistic AI voice synthesis and cloning platform.",
+          "org": "ElevenLabs",
+          "url": "https://elevenlabs.io",
+          "tags": [
+            "voice",
+            "audio",
+            "generative"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Creative Media",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "text"
+              ],
+              "output": [
+                "audio"
+              ]
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "voice-synthesis",
+                "audio-cloning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "audio-quality",
+                "real-time"
+              ]
+            },
+            "stack": {
+              "layer": "creative-ai-platform"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "medium",
+              "note": "Free tier (10k chars/month); Starter $5/month; Creator $22/month; Pro $99/month"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "GDPR"
+              ],
+              "risk_level": "medium",
+              "note": "Voice cloning raises consent/misuse concerns; platform has abuse detection"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "voice-synthesis-leader"
+            }
+          },
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "AI Search & Research",
+      "items": [
+        {
+          "uuid": "f10",
+          "name": "Perplexity",
+          "type": "tool",
+          "summary": "AI-native search engine delivering cited answers in real time.",
+          "org": "Perplexity AI",
+          "url": "https://perplexity.ai",
+          "tags": [
+            "search",
+            "research",
+            "retrieval"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "AI Search & Research",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "text"
+              ],
+              "output": [
+                "text"
+              ]
+            },
+            "lifecycle": {
+              "stage": "retrieval",
+              "focus": [
+                "retrieval",
+                "citation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "retrieval-accuracy",
+                "latency"
+              ]
+            },
+            "stack": {
+              "layer": "ai-search-platform"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free tier available; Perplexity Pro $20/month for unlimited Pro searches"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "GDPR"
+              ],
+              "risk_level": "low",
+              "note": "Search queries processed on Perplexity servers; no persistent user data by default"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "ai-native-search"
+            }
+          },
+          "relations": []
+        }
+      ]
+    },
+    {
+      "group": "Edge AI Device",
+      "items": [
+        {
+          "uuid": "f11",
+          "name": "Rabbit R1",
+          "type": "tool",
+          "summary": "Standalone AI companion device with LAM-powered app control and natural language interface.",
+          "org": "Rabbit",
+          "url": "https://www.rabbit.tech",
+          "tags": [
+            "consumer",
+            "standalone",
+            "edge",
+            "hardware"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Edge AI Device",
+              "maturity": "assess",
+              "importance": 65
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "on-device",
+              "control_level": "medium"
+            },
+            "modalities": {
+              "input": [
+                "voice",
+                "touch"
+              ],
+              "output": [
+                "screen",
+                "voice"
+              ]
+            },
+            "lifecycle": {
+              "stage": "agent-loop",
+              "focus": [
+                "app-control",
+                "task-automation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "latency",
+                "battery-life"
+              ]
+            },
+            "stack": {
+              "layer": "consumer-ai-device"
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "$199 device; no subscription required"
+            },
+            "security": {
+              "data_residency": "cloud",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "Processes data in cloud; app credentials stored on device"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "standalone-ai-companion"
+            }
+          },
+          "relations": []
+        },
+        {
+          "uuid": "f12",
+          "name": "Humane AI Pin",
+          "type": "tool",
+          "summary": "Wearable AI assistant with projector interface, camera and multimodal input for screenless interaction.",
+          "org": "Humane",
+          "url": "https://humane.com",
+          "tags": [
+            "wearable",
+            "consumer",
+            "edge",
+            "hardware"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Edge AI Device",
+              "maturity": "assess",
+              "importance": 55
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "cloud-connected",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "voice",
+                "gesture",
+                "camera"
+              ],
+              "output": [
+                "projector",
+                "voice"
+              ]
+            },
+            "lifecycle": {
+              "stage": "output-generation",
+              "focus": [
+                "screenless-interaction",
+                "multimodal-input"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "battery-life",
+                "thermal-management"
+              ]
+            },
+            "stack": {
+              "layer": "consumer-ai-device"
+            },
+            "cost": {
+              "model": "subscription",
+              "tier": "premium",
+              "relative": "high",
+              "note": "$699 device + $24/month subscription"
+            },
+            "security": {
+              "data_residency": "cloud",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "All processing in cloud; always-on camera raises privacy concerns"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "wearable-ai-assistant"
+            }
+          },
+          "relations": []
+        },
+        {
+          "uuid": "f13",
+          "name": "Meta Ray-Ban Smart Glasses",
+          "type": "tool",
+          "summary": "AR glasses with integrated multimodal AI assistant, camera and real-time visual understanding.",
+          "org": "Meta",
+          "url": "https://www.meta.com/smart-glasses/",
+          "tags": [
+            "wearable",
+            "ar",
+            "consumer",
+            "hardware"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Edge AI Device",
+              "maturity": "trial",
+              "importance": 72
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "cloud-connected",
+              "control_level": "low"
+            },
+            "modalities": {
+              "input": [
+                "voice",
+                "camera"
+              ],
+              "output": [
+                "voice",
+                "display"
+              ]
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "visual-understanding",
+                "real-time-assistance"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "battery-life",
+                "real-time-processing"
+              ]
+            },
+            "stack": {
+              "layer": "consumer-ai-device"
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "$299-379 depending on model; no subscription"
+            },
+            "security": {
+              "data_residency": "cloud",
+              "compliance": [
+                "GDPR"
+              ],
+              "risk_level": "medium",
+              "note": "Camera and audio processed by Meta; privacy LED indicator"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "ar-ai-glasses"
+            }
+          },
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

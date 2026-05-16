@@ -1,0 +1,984 @@
+{
+  "category": "Hardware",
+  "subtitle": "AI Accelerators",
+  "description": "Physical compute accelerators — GPUs, TPUs, and specialized AI chips — that provide the raw computational substrate for model training and inference.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "performance",
+    "cost",
+    "security",
+    "openness",
+    "stack"
+  ],
+  "group_types": [
+    "Datacenter AI Chip",
+    "Desktop AI Chip",
+    "Mobile AI Chip",
+    "Edge AI Chip",
+    "GPU Interconnect"
+  ],
+  "groups": [
+    {
+      "group": "Datacenter AI Chip",
+      "items": [
+        {
+          "uuid": "a1",
+          "name": "NVIDIA H100",
+          "type": "hardware",
+          "summary": "NVIDIA's flagship Hopper-architecture GPU, the dominant accelerator for large-scale LLM training and high-throughput inference.",
+          "org": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/data-center/h100/",
+          "tags": [
+            "gpu",
+            "training",
+            "inference",
+            "datacenter"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Datacenter AI Chip",
+              "maturity": "adopt",
+              "importance": 98
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "throughput",
+                "memory-bandwidth"
+              ],
+              "techniques": [
+                "tensor-core",
+                "nvlink",
+                "hbm3"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "enterprise",
+              "relative": "very-high",
+              "note": "~$30k-40k per unit; cloud rental ~$2-4/hr"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "gpu-accelerator"
+            },
+            "decision": {
+              "positioning": "training-inference-accelerator-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "runs"
+            },
+            {
+              "target": "NVIDIA H200",
+              "type": "predecessor"
+            }
+          ]
+        },
+        {
+          "uuid": "a2",
+          "name": "NVIDIA H200",
+          "type": "hardware",
+          "summary": "NVIDIA's next-generation Hopper GPU with HBM3e memory, optimized for inference of large models with improved memory bandwidth.",
+          "org": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/data-center/h200/",
+          "tags": [
+            "gpu",
+            "inference",
+            "datacenter",
+            "hbm3e"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Datacenter AI Chip",
+              "maturity": "trial",
+              "importance": 90
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "memory-bandwidth",
+                "inference-throughput"
+              ],
+              "techniques": [
+                "hbm3e",
+                "tensor-core"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "enterprise",
+              "relative": "very-high",
+              "note": "~$40k+ per unit; cloud rental ~$3-5/hr"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "gpu-accelerator"
+            },
+            "decision": {
+              "positioning": "next-gen-inference-accelerator"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA H100",
+              "type": "successor"
+            },
+            {
+              "target": "CUDA",
+              "type": "runs"
+            }
+          ]
+        },
+        {
+          "uuid": "a3",
+          "name": "NVIDIA A100",
+          "type": "hardware",
+          "summary": "NVIDIA's Ampere-architecture GPU, widely deployed in cloud and on-premise AI infrastructure, still the most common training accelerator in production.",
+          "org": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/data-center/a100/",
+          "tags": [
+            "gpu",
+            "training",
+            "inference",
+            "datacenter"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Datacenter AI Chip",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "throughput",
+                "memory-efficiency"
+              ],
+              "techniques": [
+                "tensor-core",
+                "nvlink",
+                "hbm2e"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "enterprise",
+              "relative": "high",
+              "note": "~$10k-15k per unit; cloud rental ~$1-2/hr"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "gpu-accelerator"
+            },
+            "decision": {
+              "positioning": "production-training-workhorse"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA H100",
+              "type": "predecessor"
+            },
+            {
+              "target": "CUDA",
+              "type": "runs"
+            }
+          ]
+        },
+        {
+          "uuid": "a4",
+          "name": "Google TPU v5",
+          "type": "hardware",
+          "summary": "Google's fifth-generation Tensor Processing Unit, purpose-built for large-scale ML training and inference within Google Cloud.",
+          "org": "Google",
+          "url": "https://cloud.google.com/tpu",
+          "tags": [
+            "tpu",
+            "training",
+            "inference",
+            "google-cloud"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Datacenter AI Chip",
+              "maturity": "trial",
+              "importance": 72
+            },
+            "deployment": {
+              "type": "managed-cloud",
+              "hosting": "managed",
+              "control_level": "medium"
+            },
+            "performance": {
+              "focus": [
+                "throughput",
+                "training-speed"
+              ],
+              "techniques": [
+                "systolic-array",
+                "bfloat16"
+              ]
+            },
+            "cost": {
+              "model": "pay-per-use",
+              "tier": "enterprise",
+              "relative": "high",
+              "note": "Google Cloud only; competitive with H100 for specific workloads"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "ISO27001"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "cloud-ai-accelerator"
+            },
+            "decision": {
+              "positioning": "google-cloud-native-accelerator"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA H100",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "a5",
+          "name": "Groq LPU",
+          "type": "hardware",
+          "summary": "Groq's Language Processing Unit, a deterministic inference chip delivering industry-leading token generation speed for LLM serving.",
+          "org": "Groq",
+          "url": "https://groq.com",
+          "tags": [
+            "lpu",
+            "inference",
+            "low-latency",
+            "deterministic"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Datacenter AI Chip",
+              "maturity": "trial",
+              "importance": 68
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "performance": {
+              "focus": [
+                "latency",
+                "token-generation-speed"
+              ],
+              "techniques": [
+                "deterministic-execution",
+                "sram-only"
+              ]
+            },
+            "cost": {
+              "model": "pay-per-use",
+              "tier": "standard",
+              "relative": "low",
+              "note": "Currently free tier available; very competitive inference pricing"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "inference-accelerator"
+            },
+            "decision": {
+              "positioning": "ultra-low-latency-inference-chip"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA H100",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Desktop AI Chip",
+      "items": [
+        {
+          "uuid": "a6",
+          "name": "Apple Silicon (M-series)",
+          "type": "hardware",
+          "summary": "Apple's unified memory architecture chips (M1/M2/M3/M4), the leading platform for on-device and local AI inference with exceptional performance-per-watt.",
+          "org": "Apple",
+          "url": "https://www.apple.com/mac/m4/",
+          "tags": [
+            "edge",
+            "inference",
+            "local",
+            "unified-memory"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Desktop AI Chip",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "memory-efficiency",
+                "power-efficiency"
+              ],
+              "techniques": [
+                "unified-memory",
+                "neural-engine"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Bundled with Mac hardware; no separate GPU cost"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "edge-accelerator"
+            },
+            "decision": {
+              "positioning": "edge-inference-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "Ollama",
+              "type": "runs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Mobile AI Chip",
+      "items": [
+        {
+          "uuid": "a7",
+          "name": "Qualcomm Snapdragon 8 Elite",
+          "type": "hardware",
+          "summary": "Flagship mobile SoC with dedicated Hexagon NPU for on-device AI inference and multimodal processing.",
+          "org": "Qualcomm",
+          "url": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms",
+          "tags": [
+            "mobile",
+            "edge",
+            "npu",
+            "on-device"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Mobile AI Chip",
+              "maturity": "adopt",
+              "importance": 78
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "on-device",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "power-efficiency",
+                "on-device-inference"
+              ],
+              "techniques": [
+                "npu",
+                "int8-quantization"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Bundled with mobile devices; ~$200-300 per device"
+            },
+            "security": {
+              "data_residency": "on-device",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "mobile-ai-accelerator"
+            },
+            "decision": {
+              "positioning": "mobile-edge-inference-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "Apple Silicon (M-series)",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "a8",
+          "name": "MediaTek Dimensity 9400",
+          "type": "hardware",
+          "summary": "High-performance mobile chipset with AI processing unit optimized for edge AI workloads.",
+          "org": "MediaTek",
+          "url": "https://www.mediatek.com/products/smartphones/mediatek-dimensity-9400",
+          "tags": [
+            "mobile",
+            "edge",
+            "npu",
+            "on-device"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Mobile AI Chip",
+              "maturity": "trial",
+              "importance": 70
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "on-device",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "power-efficiency",
+                "multimodal-inference"
+              ],
+              "techniques": [
+                "apu",
+                "mixed-precision"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Bundled with mobile devices; competitive pricing vs Snapdragon"
+            },
+            "security": {
+              "data_residency": "on-device",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "mobile-ai-accelerator"
+            },
+            "decision": {
+              "positioning": "mobile-edge-inference-alternative"
+            }
+          },
+          "relations": [
+            {
+              "target": "Qualcomm Snapdragon 8 Elite",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "a9",
+          "name": "Google Tensor G4",
+          "type": "hardware",
+          "summary": "Google's custom mobile chip optimized for on-device AI and Gemini Nano integration.",
+          "org": "Google",
+          "url": "https://store.google.com/intl/en/ideas/articles/google-tensor-g4/",
+          "tags": [
+            "mobile",
+            "edge",
+            "custom",
+            "on-device"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Mobile AI Chip",
+              "maturity": "trial",
+              "importance": 72
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "on-device",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "on-device-llm",
+                "multimodal-inference"
+              ],
+              "techniques": [
+                "tpu-integration",
+                "gemini-nano-optimization"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Bundled with Pixel devices; Google-exclusive"
+            },
+            "security": {
+              "data_residency": "on-device",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "mobile-ai-accelerator"
+            },
+            "decision": {
+              "positioning": "google-mobile-ai-chip"
+            }
+          },
+          "relations": [
+            {
+              "target": "Qualcomm Snapdragon 8 Elite",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Edge AI Chip",
+      "items": [
+        {
+          "uuid": "a10",
+          "name": "NVIDIA Jetson Orin",
+          "type": "hardware",
+          "summary": "Edge AI platform for robotics, autonomous machines and embedded systems with up to 275 TOPS performance.",
+          "org": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+          "tags": [
+            "edge",
+            "robotics",
+            "autonomous",
+            "embedded"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Edge AI Chip",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "edge-device",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "edge-inference",
+                "real-time-processing"
+              ],
+              "techniques": [
+                "ampere-gpu",
+                "tensor-core",
+                "nvdla"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "enterprise",
+              "relative": "high",
+              "note": "~$500-2000 per module depending on variant"
+            },
+            "security": {
+              "data_residency": "on-device",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "edge-ai-accelerator"
+            },
+            "decision": {
+              "positioning": "edge-ai-platform-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "CUDA",
+              "type": "runs"
+            }
+          ]
+        },
+        {
+          "uuid": "a11",
+          "name": "Hailo-8",
+          "type": "hardware",
+          "summary": "Edge AI processor delivering up to 26 TOPS for high-performance inference in embedded devices.",
+          "org": "Hailo",
+          "url": "https://hailo.ai/products/hailo-8/",
+          "tags": [
+            "edge",
+            "inference",
+            "embedded",
+            "low-power"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Edge AI Chip",
+              "maturity": "trial",
+              "importance": 68
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "edge-device",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "power-efficiency",
+                "edge-inference"
+              ],
+              "techniques": [
+                "dataflow-architecture",
+                "int8-quantization"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "~$100-300 per chip; cost-effective for edge deployment"
+            },
+            "security": {
+              "data_residency": "on-device",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "edge-ai-accelerator"
+            },
+            "decision": {
+              "positioning": "cost-effective-edge-inference"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA Jetson Orin",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "a12",
+          "name": "Intel Movidius",
+          "type": "hardware",
+          "summary": "Vision processing unit (VPU) for edge AI applications with focus on computer vision workloads.",
+          "org": "Intel",
+          "url": "https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html",
+          "tags": [
+            "edge",
+            "vision",
+            "vpu",
+            "embedded"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Edge AI Chip",
+              "maturity": "adopt",
+              "importance": 65
+            },
+            "deployment": {
+              "type": "local",
+              "hosting": "edge-device",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "vision-processing",
+                "power-efficiency"
+              ],
+              "techniques": [
+                "vpu-architecture",
+                "neural-compute-stick"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "standard",
+              "relative": "low",
+              "note": "~$50-200 per unit; very cost-effective for vision tasks"
+            },
+            "security": {
+              "data_residency": "on-device",
+              "compliance": [
+                "on-device"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "edge-vision-accelerator"
+            },
+            "decision": {
+              "positioning": "vision-focused-edge-chip"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA Jetson Orin",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "GPU Interconnect",
+      "items": [
+        {
+          "uuid": "a13",
+          "name": "NVLink",
+          "type": "hardware",
+          "summary": "NVIDIA's high-bandwidth GPU-to-GPU interconnect enabling multi-GPU training with up to 900GB/s bandwidth.",
+          "org": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/data-center/nvlink/",
+          "tags": [
+            "interconnect",
+            "gpu",
+            "multi-gpu",
+            "bandwidth"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "GPU Interconnect",
+              "maturity": "adopt",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "bandwidth",
+                "multi-gpu-scaling"
+              ],
+              "techniques": [
+                "direct-gpu-memory-access",
+                "high-bandwidth-interconnect"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "enterprise",
+              "relative": "high",
+              "note": "Bundled with H100/A100 GPUs; critical for multi-GPU training"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "gpu-interconnect"
+            },
+            "decision": {
+              "positioning": "multi-gpu-interconnect-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVIDIA H100",
+              "type": "depends"
+            },
+            {
+              "target": "NVIDIA A100",
+              "type": "depends"
+            }
+          ]
+        },
+        {
+          "uuid": "a14",
+          "name": "NVSwitch",
+          "type": "hardware",
+          "summary": "NVIDIA's switch fabric enabling all-to-all GPU communication in DGX systems with full NVLink bandwidth.",
+          "org": "NVIDIA",
+          "url": "https://www.nvidia.com/en-us/data-center/nvlink/",
+          "tags": [
+            "interconnect",
+            "gpu",
+            "fabric",
+            "dgx"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "GPU Interconnect",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "performance": {
+              "focus": [
+                "all-to-all-bandwidth",
+                "gpu-fabric"
+              ],
+              "techniques": [
+                "switch-fabric",
+                "non-blocking-topology"
+              ]
+            },
+            "cost": {
+              "model": "capex",
+              "tier": "enterprise",
+              "relative": "very-high",
+              "note": "Bundled with DGX systems; enables 8+ GPU configurations"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "stack": {
+              "layer": "gpu-fabric"
+            },
+            "decision": {
+              "positioning": "large-scale-gpu-fabric"
+            }
+          },
+          "relations": [
+            {
+              "target": "NVLink",
+              "type": "ecosystem"
+            },
+            {
+              "target": "NVIDIA H100",
+              "type": "depends"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

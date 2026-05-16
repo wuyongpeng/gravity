@@ -1,0 +1,1247 @@
+{
+  "category": "Orchestration",
+  "subtitle": "Workflow & Automation",
+  "description": "Connecting models, tools and memory into executable task flows that automate real-world processes.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "lifecycle",
+    "performance",
+    "cost",
+    "security",
+    "openness",
+    "stack",
+    "decision"
+  ],
+  "group_types": [
+    "Workflow Engine",
+    "Agent Orchestration",
+    "RPA & Computer Use",
+    "Evaluation & Observability",
+    "Orchestration Concept"
+  ],
+  "groups": [
+    {
+      "group": "Workflow Engine",
+      "items": [
+        {
+          "uuid": "e1",
+          "name": "Temporal",
+          "type": "framework",
+          "summary": "Durable workflow engine that persists execution state, enabling long-running and fault-tolerant AI task pipelines.",
+          "org": "Temporal Technologies",
+          "url": "https://temporal.io",
+          "tags": [
+            "workflow",
+            "durable",
+            "fault-tolerant",
+            "scheduling"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "trial",
+              "importance": 82
+            },
+            "lifecycle": {
+              "stage": "task-execution",
+              "focus": [
+                "durable-execution",
+                "fault-tolerance",
+                "state-persistence"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "workflow-runtime"
+            },
+            "performance": {
+              "focus": [
+                "fault-tolerance",
+                "long-running-execution"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; Temporal Cloud managed service ~$0.00025/workflow action"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "SOC2"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "durable-agent-backbone"
+            }
+          },
+          "relations": [
+            {
+              "target": "Prefect",
+              "type": "alternative"
+            },
+            {
+              "target": "Airflow",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e2",
+          "name": "Prefect",
+          "type": "framework",
+          "summary": "Python-native workflow orchestration with dynamic DAG support, increasingly adopted for AI pipeline management.",
+          "org": "Prefect",
+          "url": "https://prefect.io",
+          "tags": [
+            "workflow",
+            "python",
+            "dag",
+            "scheduling"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "trial",
+              "importance": 74
+            },
+            "lifecycle": {
+              "stage": "pipeline-orchestration",
+              "focus": [
+                "dynamic-dag",
+                "ai-pipeline-management"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "workflow-throughput"
+              ]
+            },
+            "deployment": {
+              "type": "hybrid",
+              "hosting": "self-managed",
+              "control_level": "medium"
+            },
+            "stack": {
+              "layer": "workflow-runtime"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source free; Prefect Cloud free tier available; Pro plan for teams"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "SOC2"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "pythonic-ai-orchestrator"
+            }
+          },
+          "relations": [
+            {
+              "target": "Temporal",
+              "type": "alternative"
+            },
+            {
+              "target": "Airflow",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e3",
+          "name": "Airflow",
+          "type": "framework",
+          "summary": "Battle-tested DAG-based workflow scheduler, widely used in data pipelines but increasingly stretched by AI workloads.",
+          "org": "Apache",
+          "url": "https://airflow.apache.org",
+          "tags": [
+            "workflow",
+            "dag",
+            "scheduling",
+            "open-source"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "adopt",
+              "importance": 76
+            },
+            "lifecycle": {
+              "stage": "batch-scheduling",
+              "focus": [
+                "dag-scheduling",
+                "batch-processing"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "workflow-scheduler"
+            },
+            "performance": {
+              "focus": [
+                "batch-processing"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Apache open-source; cost is infrastructure only"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "legacy-data-orchestrator"
+            }
+          },
+          "relations": [
+            {
+              "target": "Prefect",
+              "type": "alternative"
+            },
+            {
+              "target": "Temporal",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e4",
+          "name": "Kubeflow",
+          "type": "platform",
+          "summary": "Kubernetes-native ML workflow orchestration platform for training, serving and pipeline management.",
+          "org": "Kubeflow",
+          "url": "https://www.kubeflow.org",
+          "tags": [
+            "mlops",
+            "kubernetes",
+            "training",
+            "pipeline"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Workflow Engine",
+              "maturity": "adopt",
+              "importance": 78
+            },
+            "lifecycle": {
+              "stage": "training-pipeline",
+              "focus": [
+                "ml-workflow",
+                "distributed-training"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "ml-orchestration-platform"
+            },
+            "performance": {
+              "focus": [
+                "distributed-training",
+                "pipeline-orchestration"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source; cost is Kubernetes infrastructure"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "kubernetes-native-mlops"
+            }
+          },
+          "relations": [
+            {
+              "target": "Airflow",
+              "type": "alternative"
+            },
+            {
+              "target": "Prefect",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Agent Orchestration",
+      "items": [
+        {
+          "uuid": "e5",
+          "name": "LangGraph",
+          "type": "framework",
+          "summary": "Stateful graph-based orchestration for multi-agent systems, emerging standard for complex agent workflows.",
+          "org": "LangChain",
+          "url": "https://langchain.com/langgraph",
+          "tags": [
+            "agent",
+            "multi-agent",
+            "stateful",
+            "graph"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "trial",
+              "importance": 91
+            },
+            "lifecycle": {
+              "stage": "agent-coordination",
+              "focus": [
+                "stateful-graph",
+                "multi-agent-routing"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "agent-runtime"
+            },
+            "performance": {
+              "focus": [
+                "stateful-execution",
+                "multi-agent-coordination"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source library; LangGraph Cloud for managed deployment"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "stateful-agent-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "CrewAI",
+              "type": "alternative"
+            },
+            {
+              "target": "LangChain",
+              "type": "ecosystem"
+            },
+            {
+              "target": "Agentic Loop",
+              "type": "implements"
+            }
+          ]
+        },
+        {
+          "uuid": "e6",
+          "name": "CrewAI",
+          "type": "framework",
+          "summary": "Role-based multi-agent framework focused on collaborative task execution with minimal boilerplate.",
+          "org": "CrewAI",
+          "url": "https://crewai.com",
+          "tags": [
+            "multi-agent",
+            "role-based",
+            "python"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "trial",
+              "importance": 80
+            },
+            "lifecycle": {
+              "stage": "agent-collaboration",
+              "focus": [
+                "role-based-execution",
+                "task-delegation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "multi-agent-coordination"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "agent-framework"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source free; CrewAI Enterprise for production support"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "role-based-multi-agent-framework"
+            }
+          },
+          "relations": [
+            {
+              "target": "LangGraph",
+              "type": "alternative"
+            },
+            {
+              "target": "AutoGen",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e7",
+          "name": "Dify",
+          "type": "tool",
+          "summary": "Visual LLM workflow builder with built-in RAG, tool integration and one-click deployment for production agents.",
+          "org": "Dify",
+          "url": "https://dify.ai",
+          "tags": [
+            "visual",
+            "workflow",
+            "rag",
+            "no-code"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "adopt",
+              "importance": 83
+            },
+            "lifecycle": {
+              "stage": "agent-coordination",
+              "focus": [
+                "visual-workflow-building",
+                "rag-integration"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "workflow-throughput"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "visual-agent-platform"
+            },
+            "modalities": {
+              "supported": [
+                "text"
+              ]
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; Dify Cloud free tier + paid plans"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "low-code-agent-platform"
+            }
+          },
+          "relations": [
+            {
+              "target": "Flowise",
+              "type": "alternative"
+            },
+            {
+              "target": "LangChain",
+              "type": "depends"
+            },
+            {
+              "target": "RAG",
+              "type": "implements"
+            }
+          ]
+        },
+        {
+          "uuid": "e8",
+          "name": "Flowise",
+          "type": "tool",
+          "summary": "Open-source drag-and-drop UI for building LangChain-based agent workflows without writing code.",
+          "org": "Flowise",
+          "url": "https://flowiseai.com",
+          "tags": [
+            "visual",
+            "workflow",
+            "no-code",
+            "open-source"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "trial",
+              "importance": 70
+            },
+            "lifecycle": {
+              "stage": "agent-coordination",
+              "focus": [
+                "drag-drop-workflow",
+                "no-code-agent-building"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "workflow-throughput"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "visual-agent-builder"
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Fully open-source; self-hosted at no cost"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "open-source-workflow-builder"
+            }
+          },
+          "relations": [
+            {
+              "target": "Dify",
+              "type": "alternative"
+            },
+            {
+              "target": "LangChain",
+              "type": "depends"
+            }
+          ]
+        },
+        {
+          "uuid": "e9",
+          "name": "n8n",
+          "type": "tool",
+          "summary": "Open-source workflow automation platform rapidly adopted as the self-hosted backbone for AI-augmented business processes.",
+          "org": "n8n",
+          "url": "https://n8n.io",
+          "tags": [
+            "automation",
+            "workflow",
+            "no-code",
+            "open-source"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "adopt",
+              "importance": 78
+            },
+            "lifecycle": {
+              "stage": "pipeline-orchestration",
+              "focus": [
+                "business-process-automation",
+                "ai-action-integration"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "automation-throughput"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "business-automation"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Self-hosted free (fair-code license); n8n Cloud from $20/month"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "GDPR"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "fair-code",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "self-hosted-zapier-alternative"
+            }
+          },
+          "relations": [
+            {
+              "target": "Zapier",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e10",
+          "name": "Zapier",
+          "type": "tool",
+          "summary": "Cloud automation platform connecting 6000+ apps, adding AI actions as a layer on top of existing integrations.",
+          "org": "Zapier",
+          "url": "https://zapier.com",
+          "tags": [
+            "automation",
+            "integration",
+            "no-code"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Agent Orchestration",
+              "maturity": "adopt",
+              "importance": 72
+            },
+            "lifecycle": {
+              "stage": "pipeline-orchestration",
+              "focus": [
+                "app-integration",
+                "ai-action-layer"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "integration-latency"
+              ]
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed",
+              "control_level": "low"
+            },
+            "stack": {
+              "layer": "business-automation"
+            },
+            "cost": {
+              "model": "subscription",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Free tier (100 tasks/month); paid from $19.99/month; scales with task volume"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "GDPR"
+              ],
+              "risk_level": "medium",
+              "note": "All data flows through Zapier servers; review data handling for sensitive workflows"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "managed-no-code-automation"
+            }
+          },
+          "relations": [
+            {
+              "target": "n8n",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "RPA & Computer Use",
+      "items": [
+        {
+          "uuid": "e11",
+          "name": "Browser Use",
+          "type": "tool",
+          "summary": "Open-source library enabling LLMs to control browsers via structured actions, foundation of web automation agents.",
+          "org": "Browser Use",
+          "url": "https://browser-use.com",
+          "tags": [
+            "browser",
+            "automation",
+            "computer-use",
+            "open-source"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "RPA & Computer Use",
+              "maturity": "trial",
+              "importance": 79
+            },
+            "lifecycle": {
+              "stage": "computer-execution",
+              "focus": [
+                "browser-control",
+                "web-automation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "browser-control"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "browser-agent-runtime"
+            },
+            "modalities": {
+              "supported": [
+                "web-ui"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source library; cost is LLM API calls for element targeting"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "Browser agent can access any page content; sandbox execution recommended"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "open-browser-agent-framework"
+            }
+          },
+          "relations": [
+            {
+              "target": "Playwright",
+              "type": "depends"
+            },
+            {
+              "target": "Stagehand",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e12",
+          "name": "Stagehand",
+          "type": "tool",
+          "summary": "Browserbase's AI web automation SDK combining Playwright with LLM-powered element targeting.",
+          "org": "Browserbase",
+          "url": "https://stagehand.dev",
+          "tags": [
+            "browser",
+            "automation",
+            "computer-use"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "RPA & Computer Use",
+              "maturity": "assess",
+              "importance": 65
+            },
+            "lifecycle": {
+              "stage": "computer-execution",
+              "focus": [
+                "llm-element-targeting",
+                "browser-sdk"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "browser-control",
+                "latency"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "browser-agent-sdk"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Open-source SDK free; Browserbase cloud for managed browser sessions"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "llm-enhanced-browser-sdk"
+            }
+          },
+          "relations": [
+            {
+              "target": "Browser Use",
+              "type": "alternative"
+            },
+            {
+              "target": "Playwright",
+              "type": "depends"
+            }
+          ]
+        },
+        {
+          "uuid": "e13",
+          "name": "Playwright",
+          "type": "tool",
+          "summary": "Microsoft's cross-browser automation library, the dominant low-level substrate for AI browser control agents.",
+          "org": "Microsoft",
+          "url": "https://playwright.dev",
+          "tags": [
+            "browser",
+            "automation",
+            "testing"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "RPA & Computer Use",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "lifecycle": {
+              "stage": "computer-execution",
+              "focus": [
+                "cross-browser-control",
+                "automation-substrate"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "browser-automation-runtime"
+            },
+            "performance": {
+              "focus": [
+                "browser-control"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Fully open-source; no cost"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "browser-automation-foundation"
+            }
+          },
+          "relations": [
+            {
+              "target": "Browser Use",
+              "type": "ecosystem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Evaluation & Observability",
+      "items": [
+        {
+          "uuid": "e14",
+          "name": "LangSmith",
+          "type": "tool",
+          "summary": "Tracing and evaluation platform for LLM applications, tightly integrated with the LangChain ecosystem.",
+          "org": "LangChain",
+          "url": "https://smith.langchain.com",
+          "tags": [
+            "observability",
+            "tracing",
+            "evaluation"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Evaluation & Observability",
+              "maturity": "adopt",
+              "importance": 80
+            },
+            "lifecycle": {
+              "stage": "monitoring",
+              "focus": [
+                "tracing",
+                "evaluation",
+                "prompt-management"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "trace-ingestion-throughput"
+              ]
+            },
+            "deployment": {
+              "type": "cloud-saas",
+              "hosting": "managed",
+              "control_level": "low"
+            },
+            "stack": {
+              "layer": "llm-observability"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Free tier (5k traces/month); Developer $39/month; Plus $299/month"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2"
+              ],
+              "risk_level": "medium",
+              "note": "Trace data including prompts/responses sent to LangSmith servers"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "n/a",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "langchain-native-observability"
+            }
+          },
+          "relations": [
+            {
+              "target": "LangChain",
+              "type": "ecosystem"
+            },
+            {
+              "target": "Langfuse",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "e15",
+          "name": "Langfuse",
+          "type": "tool",
+          "summary": "Open-source LLM observability platform with tracing, evals and prompt management for production pipelines.",
+          "org": "Langfuse",
+          "url": "https://langfuse.com",
+          "tags": [
+            "observability",
+            "tracing",
+            "open-source",
+            "evaluation"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Evaluation & Observability",
+              "maturity": "trial",
+              "importance": 71
+            },
+            "lifecycle": {
+              "stage": "monitoring",
+              "focus": [
+                "open-source-tracing",
+                "evals",
+                "prompt-versioning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "trace-ingestion-throughput"
+              ]
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "llm-observability"
+            },
+            "cost": {
+              "model": "freemium",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open-source self-hosted free; Langfuse Cloud free tier + paid plans"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "GDPR"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "open-source-observability-stack"
+            }
+          },
+          "relations": [
+            {
+              "target": "LangSmith",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Orchestration Concept",
+      "items": [
+        {
+          "uuid": "e16",
+          "name": "Agentic Loop",
+          "type": "concept",
+          "summary": "The plan-act-observe cycle at the core of autonomous agents, enabling iterative task completion without human intervention.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2309.07864",
+          "tags": [
+            "agent",
+            "pattern",
+            "autonomy"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Orchestration Concept",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "lifecycle": {
+              "stage": "agent-loop",
+              "focus": [
+                "plan-act-observe",
+                "iterative-execution"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "iteration-speed"
+              ]
+            },
+            "stack": {
+              "layer": "agent-pattern"
+            },
+            "cost": {
+              "model": "token-overhead",
+              "tier": "variable",
+              "relative": "high",
+              "note": "Each loop iteration consumes LLM tokens; uncontrolled loops can be expensive"
+            },
+            "security": {
+              "data_residency": "depends-on-model",
+              "compliance": [],
+              "risk_level": "high",
+              "note": "Autonomous execution without oversight; requires careful tool permission scoping"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "autonomous-agent-core-pattern"
+            }
+          },
+          "relations": [
+            {
+              "target": "LangGraph",
+              "type": "implemented_by"
+            },
+            {
+              "target": "Chain-of-Thought",
+              "type": "depends"
+            }
+          ]
+        },
+        {
+          "uuid": "e17",
+          "name": "Human-in-the-Loop",
+          "type": "concept",
+          "summary": "Design pattern inserting human approval or correction checkpoints into agent workflows to ensure safety and accuracy.",
+          "org": null,
+          "url": "https://arxiv.org/abs/2408.08209",
+          "tags": [
+            "safety",
+            "pattern",
+            "agent",
+            "control"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Orchestration Concept",
+              "maturity": "adopt",
+              "importance": 82
+            },
+            "lifecycle": {
+              "stage": "human-approval",
+              "focus": [
+                "safety-checkpoint",
+                "human-correction"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "approval-latency"
+              ]
+            },
+            "stack": {
+              "layer": "governance-pattern"
+            },
+            "cost": {
+              "model": "human-effort",
+              "tier": "variable",
+              "relative": "medium",
+              "note": "Adds human review time; reduces automation ROI but critical for high-risk tasks"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low",
+              "note": "Human oversight significantly reduces autonomous agent risk"
+            },
+            "openness": {
+              "license": "open-concept",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "human-governed-agent-pattern"
+            }
+          },
+          "relations": [
+            {
+              "target": "Agentic Loop",
+              "type": "constrains"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

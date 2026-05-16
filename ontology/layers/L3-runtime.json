@@ -1,0 +1,956 @@
+{
+  "category": "Runtime",
+  "subtitle": "Models & Protocols",
+  "description": "The standard interface layer connecting infrastructure to logic: frontier models that provide intelligence, multimodal and embodied models for physical interaction, and protocols that standardize tool and agent communication.",
+  "perspectives": [
+    "radar",
+    "deployment",
+    "modalities",
+    "lifecycle",
+    "performance",
+    "cost",
+    "security",
+    "openness",
+    "stack",
+    "decision"
+  ],
+  "group_types": [
+    "Frontier Model",
+    "Multimodal & Embodied Model",
+    "Protocol"
+  ],
+  "groups": [
+    {
+      "group": "Frontier Model",
+      "items": [
+        {
+          "uuid": "c1",
+          "name": "GPT-4o",
+          "type": "model",
+          "summary": "OpenAI's flagship multimodal model, de facto standard for API-based LLM integration.",
+          "org": "OpenAI",
+          "url": "https://platform.openai.com/docs/models/gpt-4o",
+          "tags": [
+            "llm",
+            "multimodal",
+            "api"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 97
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "supported": [
+                "text",
+                "image",
+                "audio"
+              ]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "multimodal-inference",
+                "real-time-response"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "multimodal-inference",
+                "real-time"
+              ]
+            },
+            "cost": {
+              "model": "per-token",
+              "tier": "premium",
+              "relative": "high",
+              "note": "Input ~$2.5/1M tokens, Output ~$10/1M tokens (gpt-4o)"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "HIPAA",
+                "GDPR"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "general-purpose-api-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "Claude 3.7 Sonnet",
+              "type": "alternative"
+            },
+            {
+              "target": "Gemini 2.5 Pro",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "c2",
+          "name": "o3",
+          "type": "model",
+          "summary": "OpenAI's reasoning-specialized model using extended thinking at inference time for complex problem solving.",
+          "org": "OpenAI",
+          "url": "https://platform.openai.com/docs/models/o3",
+          "tags": [
+            "llm",
+            "reasoning",
+            "thinking"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "trial",
+              "importance": 90
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "extended-thinking",
+                "chain-of-thought"
+              ]
+            },
+            "stack": {
+              "layer": "reasoning-model"
+            },
+            "performance": {
+              "focus": [
+                "reasoning-depth"
+              ]
+            },
+            "modalities": {
+              "supported": [
+                "text"
+              ]
+            },
+            "cost": {
+              "model": "per-token",
+              "tier": "premium",
+              "relative": "very-high",
+              "note": "Input ~$10/1M tokens, Output ~$40/1M tokens; thinking tokens add cost"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "HIPAA",
+                "GDPR"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "high-reasoning-model"
+            }
+          },
+          "relations": [
+            {
+              "target": "Claude 3.7 Sonnet",
+              "type": "alternative"
+            },
+            {
+              "target": "DeepSeek R1",
+              "type": "alternative"
+            },
+            {
+              "target": "Chain-of-Thought",
+              "type": "implements"
+            }
+          ]
+        },
+        {
+          "uuid": "c3",
+          "name": "Claude 3.7 Sonnet",
+          "type": "model",
+          "summary": "Anthropic's leading model with extended thinking mode, strongest in agentic coding and long-context tasks.",
+          "org": "Anthropic",
+          "url": "https://anthropic.com/claude",
+          "tags": [
+            "llm",
+            "reasoning",
+            "coding",
+            "long-context"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 95
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "supported": [
+                "text",
+                "image"
+              ]
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "extended-thinking",
+                "agentic-coding"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "agentic-coding",
+                "long-context"
+              ]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "cost": {
+              "model": "per-token",
+              "tier": "premium",
+              "relative": "high",
+              "note": "Input ~$3/1M tokens, Output ~$15/1M tokens"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "HIPAA",
+                "GDPR"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "agentic-coding-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "GPT-4o",
+              "type": "alternative"
+            },
+            {
+              "target": "o3",
+              "type": "alternative"
+            },
+            {
+              "target": "MCP",
+              "type": "ecosystem"
+            }
+          ]
+        },
+        {
+          "uuid": "c4",
+          "name": "Gemini 2.5 Pro",
+          "type": "model",
+          "summary": "Google's frontier model with 1M context window, leading in long-document and multimodal understanding.",
+          "org": "Google",
+          "url": "https://deepmind.google/models/gemini",
+          "tags": [
+            "llm",
+            "multimodal",
+            "long-context"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 92
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "modalities": {
+              "supported": [
+                "text",
+                "image",
+                "audio",
+                "video"
+              ]
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "long-context-understanding",
+                "multimodal-reasoning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "long-context",
+                "multimodal"
+              ]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "cost": {
+              "model": "per-token",
+              "tier": "premium",
+              "relative": "high",
+              "note": "Input ~$1.25/1M tokens (≤200k), Output ~$10/1M tokens"
+            },
+            "security": {
+              "data_residency": "us",
+              "compliance": [
+                "SOC2",
+                "ISO27001",
+                "GDPR"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "proprietary",
+              "weights": "closed",
+              "source": "closed"
+            },
+            "decision": {
+              "positioning": "long-context-leader"
+            }
+          },
+          "relations": [
+            {
+              "target": "GPT-4o",
+              "type": "alternative"
+            },
+            {
+              "target": "Context Window",
+              "type": "extends"
+            }
+          ]
+        },
+        {
+          "uuid": "c5",
+          "name": "Llama 3",
+          "type": "model",
+          "summary": "Meta's open-weight flagship, the dominant base model for self-hosted and fine-tuned deployments.",
+          "org": "Meta",
+          "url": "https://ai.meta.com/llama",
+          "tags": [
+            "llm",
+            "open-weight",
+            "self-hosted"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "adopt",
+              "importance": 88
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "hardware": {
+              "supports": [
+                "cuda",
+                "rocm",
+                "cpu"
+              ]
+            },
+            "modalities": {
+              "supported": [
+                "text"
+              ]
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "fine-tuning-ready",
+                "self-hosted-inference"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "memory-efficiency",
+                "training-speed"
+              ]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "cost": {
+              "model": "self-hosted",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free weights; cost is compute infrastructure only"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [
+                "Llama-3-Community-License"
+              ],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "llama-3-community",
+              "weights": "open",
+              "source": "partial"
+            },
+            "decision": {
+              "positioning": "open-weight-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "Mistral Large",
+              "type": "alternative"
+            },
+            {
+              "target": "DeepSeek R1",
+              "type": "alternative"
+            },
+            {
+              "target": "Fine-tuning",
+              "type": "supports"
+            }
+          ]
+        },
+        {
+          "uuid": "c6",
+          "name": "Mistral Large",
+          "type": "model",
+          "summary": "Mistral's top-tier model balancing strong performance with efficient inference.",
+          "org": "Mistral AI",
+          "url": "https://mistral.ai/models",
+          "tags": [
+            "llm",
+            "efficient",
+            "open-weight"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "trial",
+              "importance": 76
+            },
+            "deployment": {
+              "type": "cloud-api",
+              "hosting": "managed-api",
+              "control_level": "low"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "efficient-inference",
+                "api-access"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "efficient-inference"
+              ]
+            },
+            "stack": {
+              "layer": "foundation-model"
+            },
+            "cost": {
+              "model": "per-token",
+              "tier": "standard",
+              "relative": "medium",
+              "note": "Input ~$2/1M tokens, Output ~$6/1M tokens; competitive pricing"
+            },
+            "security": {
+              "data_residency": "eu",
+              "compliance": [
+                "GDPR"
+              ],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "open",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "efficient-inference-model"
+            }
+          },
+          "relations": [
+            {
+              "target": "Llama 3",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "c7",
+          "name": "DeepSeek R1",
+          "type": "model",
+          "summary": "Chinese open-weight reasoning model matching frontier performance at a fraction of training cost.",
+          "org": "DeepSeek",
+          "url": "https://deepseek.com",
+          "tags": [
+            "llm",
+            "reasoning",
+            "open-weight",
+            "efficient"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Frontier Model",
+              "maturity": "trial",
+              "importance": 85
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "chain-of-thought",
+                "cost-efficient-reasoning"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "reasoning",
+                "cost-efficiency"
+              ]
+            },
+            "stack": {
+              "layer": "reasoning-model"
+            },
+            "cost": {
+              "model": "self-hosted",
+              "tier": "free",
+              "relative": "low",
+              "note": "Free weights; API via DeepSeek ~$0.14/1M input tokens"
+            },
+            "security": {
+              "data_residency": "cn",
+              "compliance": [],
+              "risk_level": "high",
+              "note": "Chinese jurisdiction; data sovereignty concerns for enterprise use"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "open",
+              "source": "partial"
+            },
+            "decision": {
+              "positioning": "open-reasoning-model"
+            }
+          },
+          "relations": [
+            {
+              "target": "o3",
+              "type": "alternative"
+            },
+            {
+              "target": "Llama 3",
+              "type": "alternative"
+            },
+            {
+              "target": "Chain-of-Thought",
+              "type": "implements"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Protocol",
+      "items": [
+        {
+          "uuid": "c8",
+          "name": "MCP",
+          "type": "protocol",
+          "summary": "Anthropic's open protocol standardizing how AI models connect to external tools and data sources.",
+          "org": "Anthropic",
+          "url": "https://modelcontextprotocol.io",
+          "tags": [
+            "protocol",
+            "tool-use",
+            "standard"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Protocol",
+              "maturity": "trial",
+              "importance": 92
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "runtime-protocol"
+            },
+            "lifecycle": {
+              "stage": "tool-execution",
+              "focus": [
+                "tool-integration",
+                "data-source-connection"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "tool-invocation-latency"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open protocol; no licensing cost; implementation effort required"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "medium",
+              "note": "Tool servers can access sensitive data; requires careful permission design"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "tool-use-standard"
+            }
+          },
+          "relations": [
+            {
+              "target": "A2A",
+              "type": "alternative"
+            },
+            {
+              "target": "Function Calling",
+              "type": "extends"
+            }
+          ]
+        },
+        {
+          "uuid": "c9",
+          "name": "A2A",
+          "type": "protocol",
+          "summary": "Google's Agent-to-Agent protocol enabling standardized communication between autonomous AI agents.",
+          "org": "Google",
+          "url": "https://google.github.io/A2A",
+          "tags": [
+            "protocol",
+            "multi-agent",
+            "standard"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Protocol",
+              "maturity": "assess",
+              "importance": 75
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "stack": {
+              "layer": "agent-protocol"
+            },
+            "lifecycle": {
+              "stage": "agent-coordination",
+              "focus": [
+                "agent-to-agent-communication",
+                "multi-agent-protocol"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "agent-communication-latency"
+              ]
+            },
+            "cost": {
+              "model": "free",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open protocol; early stage, ecosystem still forming"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "medium"
+            },
+            "openness": {
+              "license": "apache-2.0",
+              "weights": "n/a",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "agent-communication-protocol"
+            }
+          },
+          "relations": [
+            {
+              "target": "MCP",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Multimodal & Embodied Model",
+      "items": [
+        {
+          "uuid": "c10",
+          "name": "RT-2 (Robotic Transformer)",
+          "type": "model",
+          "summary": "Vision-language-action model bridging language understanding and robotic control for embodied AI.",
+          "org": "Google DeepMind",
+          "url": "https://robotics-transformer2.github.io",
+          "tags": [
+            "vla",
+            "robotics",
+            "multimodal",
+            "embodied"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Multimodal & Embodied Model",
+              "maturity": "assess",
+              "importance": 75
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "research",
+              "control_level": "high"
+            },
+            "modalities": {
+              "supported": [
+                "vision",
+                "language",
+                "action"
+              ]
+            },
+            "stack": {
+              "layer": "embodied-foundation-model"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "vision-language-action",
+                "robotic-control"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "generalization",
+                "zero-shot-manipulation"
+              ]
+            },
+            "cost": {
+              "model": "research",
+              "tier": "research",
+              "relative": "high",
+              "note": "Research model; not publicly available for production use"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "research",
+              "weights": "closed",
+              "source": "partial"
+            },
+            "decision": {
+              "positioning": "embodied-ai-foundation-model"
+            }
+          },
+          "relations": [
+            {
+              "target": "OpenVLA",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "c11",
+          "name": "OpenVLA",
+          "type": "model",
+          "summary": "Open-source vision-language-action model for robotic manipulation trained on diverse datasets.",
+          "org": "OpenVLA Project",
+          "url": "https://openvla.github.io",
+          "tags": [
+            "vla",
+            "robotics",
+            "open-weight",
+            "embodied"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Multimodal & Embodied Model",
+              "maturity": "assess",
+              "importance": 72
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "modalities": {
+              "supported": [
+                "vision",
+                "language",
+                "action"
+              ]
+            },
+            "stack": {
+              "layer": "embodied-foundation-model"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "vision-language-action",
+                "manipulation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "manipulation-accuracy",
+                "generalization"
+              ]
+            },
+            "cost": {
+              "model": "self-hosted",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open weights; cost is compute infrastructure for inference"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "open",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "open-embodied-ai-model"
+            }
+          },
+          "relations": [
+            {
+              "target": "RT-2 (Robotic Transformer)",
+              "type": "alternative"
+            }
+          ]
+        },
+        {
+          "uuid": "c12",
+          "name": "Octo",
+          "type": "model",
+          "summary": "Generalist robot policy trained on diverse manipulation datasets for cross-embodiment transfer.",
+          "org": "UC Berkeley",
+          "url": "https://octo-models.github.io",
+          "tags": [
+            "robotics",
+            "generalist",
+            "open-weight",
+            "manipulation"
+          ],
+          "perspectives": {
+            "radar": {
+              "group": "Multimodal & Embodied Model",
+              "maturity": "assess",
+              "importance": 68
+            },
+            "deployment": {
+              "type": "self-hosted",
+              "hosting": "self-managed",
+              "control_level": "high"
+            },
+            "modalities": {
+              "supported": [
+                "vision",
+                "action"
+              ]
+            },
+            "stack": {
+              "layer": "embodied-foundation-model"
+            },
+            "lifecycle": {
+              "stage": "reasoning",
+              "focus": [
+                "cross-embodiment",
+                "manipulation"
+              ]
+            },
+            "performance": {
+              "focus": [
+                "cross-embodiment-transfer",
+                "generalization"
+              ]
+            },
+            "cost": {
+              "model": "self-hosted",
+              "tier": "free",
+              "relative": "low",
+              "note": "Open weights; research-focused model"
+            },
+            "security": {
+              "data_residency": "self-controlled",
+              "compliance": [],
+              "risk_level": "low"
+            },
+            "openness": {
+              "license": "mit",
+              "weights": "open",
+              "source": "open"
+            },
+            "decision": {
+              "positioning": "generalist-robot-policy"
+            }
+          },
+          "relations": [
+            {
+              "target": "OpenVLA",
+              "type": "alternative"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
